@@ -5,10 +5,16 @@
 - Tested with npm v8.11.0
 
 Requires Installing Lerna
+
 ```npm install --global lerna```
 
-Bootstrap/run npm init on all repos
-```lerna bootstrap```
+
+Bootstrap command runs npm init on all packages
+
+```
+cd ./
+lerna bootstrap
+```
 
 ## Building
 ### Builds
