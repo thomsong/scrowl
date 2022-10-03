@@ -1,0 +1,35 @@
+{
+  "name": "embed-host",
+  "version": "1.0.0",
+  "description": "Scrowl editor embedded slide host",
+  "devDependencies": {
+    "@fec/remark-a11y-emoji": "^3.1.0",
+    "@types/react-dom": "^18.0.6",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.8.3",
+    "webpack-cli": "^4.10.0",
+    "webpack-shell-plugin-next": "^2.2.2"
+  },
+  "scripts": {
+    "build": "webpack --mode=production",
+    "dev": "webpack --mode=development",
+    "watch": "webpack --mode=development --watch"
+  },
+  "author": "Greg Thomson <greg@osg.ca>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/react": "^18.0.20",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.3",
+    "remark-gfm": "^3.0.1",
+    "editor": "*"
+  },
+  "publishConfig": {
+    "directory": "src"
+  },
+  "files": [
+    "src"
+  ],
+  "main": "src"
+}

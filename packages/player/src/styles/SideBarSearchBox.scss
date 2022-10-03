@@ -1,0 +1,40 @@
+.SideBarSearchBox {
+  height: 40px;
+
+  background: $bg-color;
+  color: $text-dark-a11y-color;
+  padding: 10px;
+  font-size: 16px;
+  display: flex;
+
+  i.fa-search {
+    margin-top: 3px;
+  }
+  .search-term {
+    display: inline-block;
+    font-size: 17px;
+    margin-left: 10px;
+
+    input {
+      width: calc(var(--sidebar-menu-width) - 70px);
+      background: none;
+      border: none;
+      outline: none;
+      color: $text-light-color;
+
+      &::placeholder {
+        color: $text-dark-a11y-color;
+      }
+    }
+  }
+  button.clear {
+    background: none;
+    border: none;
+    color: $text-dark-a11y-color;
+    padding-left: 5px;
+
+    &:hover {
+      color: $text-light-color;
+    }
+  }
+}

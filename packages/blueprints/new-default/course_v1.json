@@ -1,0 +1,62 @@
+{
+  "course": {
+    "id": null,
+    "name": "New Untitled Course",
+    "blueprint": "new-default",
+    "version": 1
+  },
+
+  "assets": [],
+
+  "modules": [
+    {
+      "id": 1,
+      "name": "New Module"
+    }
+  ],
+
+  "lessons": [
+    {
+      "id": 1,
+      "moduleId": 1,
+      "name": "New Lesson"
+    }
+  ],
+
+  "slides": [
+    {
+      "id": 1,
+      "moduleId": 1,
+      "lessonId": 1,
+      "name": "Slide 1",
+      "templateName": "simple-text",
+      "templateVersion": "1.0",
+      "content": {
+        "body": "# Welcome to your new course!\n\nLet's get started!",
+        "alignment": "center"
+      }
+    },
+    {
+      "id": 2,
+      "moduleId": 1,
+      "lessonId": 1,
+      "name": "Slide 2",
+      "templateName": "simple-text",
+      "templateVersion": "1.0",
+      "content": {}
+    },
+    {
+      "id": 3,
+      "moduleId": 1,
+      "lessonId": 1,
+      "name": "Slide 3",
+      "templateName": "simple-text",
+      "templateVersion": "1.0",
+      "content": {}
+    }
+  ],
+
+  "glossaryTerms": [],
+
+  "resources": []
+}

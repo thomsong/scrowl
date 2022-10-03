@@ -1,0 +1,60 @@
+<html>
+    <title>Preview</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        iframe {
+            width:100vw;
+            height:calc(100vh - 40px);
+            border:0;
+            position: fixed;
+            left: 0;
+            top:40px;
+        }
+        header{
+            height:40px;
+            background-color: #211f24;
+            color:white;
+            position: fixed;
+            top:0;
+            left:0;
+            width: 100vw;
+            z-index: 999;
+            
+            box-shadow: 0px 0px 4px 1px #00000088;
+            font-size: 16px;
+            padding:10px;
+        }
+
+        header button {
+            color:white;
+            background:none;
+            border:none;
+            font-size:16px;
+            cursor: pointer;
+            padding: 0 5px;
+            float:right;
+            
+        }
+
+        header button:hover {
+            opacity: 0.9;
+            text-decoration: underline;
+        }
+
+    </style>
+    <body>
+        <header>Preview
+            <button onClick="window.close()">Close Preview</button>
+        </header>
+        <iframe src="http://localhost:14191/course/preview/player/" />
+    </body>
+</html>

@@ -1,0 +1,81 @@
+strong {
+  font-weight: 600;
+}
+
+em {
+  font-style: italic;
+}
+
+blockquote {
+  margin-left: 20px;
+  border-left: 2px solid #999;
+  padding-left: 10px;
+}
+
+p,
+ul,
+ol,
+table {
+  margin: min(3vw, 20px) 0;
+}
+
+ol {
+  margin-left: 23px;
+}
+
+ul {
+  margin-left: 18px;
+}
+
+li {
+  margin: 7px 0;
+}
+
+li.task-list-item {
+  list-style: none;
+}
+
+ul.contains-task-list {
+  margin-left: 0px;
+}
+
+img {
+  max-width: 100%;
+}
+
+pre {
+  font-family: monospace;
+  border: 1px solid var(--hr-very-light-color);
+  padding: 10px;
+  border-radius: 3px;
+  background: #f8f8f8;
+}
+
+h1 span[role="img"] {
+  font-size: 125px;
+}
+
+h2 span[role="img"] {
+  font-size: 100px;
+}
+
+h3 span[role="img"] {
+  font-size: 80px;
+}
+
+h4 span[role="img"] {
+  font-size: 70px;
+}
+
+h5 span[role="img"] {
+  font-size: 60px;
+}
+
+h6 span[role="img"] {
+  font-size: 50px;
+}
+
+ol,
+ul {
+  list-style: initial;
+}

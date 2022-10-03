@@ -1,0 +1,22 @@
+diff --git a/node_modules/simple-scorm-packager/lib/index.js b/node_modules/simple-scorm-packager/lib/index.js
+index 22aa6e8..ce855e7 100644
+--- a/node_modules/simple-scorm-packager/lib/index.js
++++ b/node_modules/simple-scorm-packager/lib/index.js
+@@ -129,7 +129,7 @@ var buildPackage = function(obj, callback) {
+                   _logSuccess(
+                     finalFilename + " " + archive.pointer() + " total bytes"
+                   );
+-                  callback("Done");
++                  callback({success:true, filename:zipOutput});
+                 });
+                 archive.on("error", function(err) {
+                   _logError(err);
+@@ -147,7 +147,7 @@ var buildPackage = function(obj, callback) {
+ 
+                 archive.finalize();
+               } else {
+-                callback("Done");
++                callback({success:true});
+               }
+             }
+           }

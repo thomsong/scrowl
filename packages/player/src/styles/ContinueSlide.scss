@@ -1,0 +1,30 @@
+.continue-slide {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  text-align: center;
+
+  button {
+    width: 100vw;
+    padding: 12px;
+
+    user-select: none;
+    cursor: pointer;
+    background: #f0eded;
+    border: none;
+    // padding: 1rem 2rem;
+    color: var(--bg-color);
+    font-weight: 400;
+    // font-size: min(5vw, 1.25rem);
+    font-size: 15px;
+
+    &:hover span.link {
+      text-decoration: underline;
+      color: var(--link-color);
+    }
+
+    .arrow {
+      color: var(--link-color);
+      margin-top: 3px;
+      display: block;
+    }
+  }
+}

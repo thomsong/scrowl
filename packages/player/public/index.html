@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Loading...</title>
+    <link rel="stylesheet" href="./assets/themes/default@1.0/style.css">
+    
+    <script src="./static/js/ScrollMagic.js"></script>
+    <script src="./static/js/anime.min.js"></script>
+    <script src="./static/js/lottie.min.js"></script>
+    <script src="./static/js/debug.addIndicators.js"></script>
+    <script src="./static/js/require.js"></script>
+
+    <script src="./course_data.js"></script>
+    <script>
+      if (!window.courseData.preview) { 
+        window.courseData.preview = {};
+      }
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this course.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

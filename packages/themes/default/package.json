@@ -1,0 +1,11 @@
+{
+  "name": "default",
+  "version": "1.0.0",
+  "description": "Default Scrowl Theme",
+  "author": "Greg Thomson <greg@osg.ca>",
+  "license": "MIT",
+  "scripts": {
+    "build": "node ../common/build.js",
+    "watch": "nodemon -e scss,css ../common/build.js"
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "course": {
+    "id": null,
+    "name": "Welcome to Scrowl!",
+    "blueprint": "welcome",
+    "version": 1
+  },
+
+  "publish": {
+    "name": "",
+    "description": "",
+    "authors": "",
+    "organization": "",
+    "reportStatus": "Passed/Incomplete",
+    "lmsIdentifier": "",
+    "outputFormat": "SCORM 2004",
+    "optomizeMedia": "Recommended"
+  },
+  "assets": [
+    {
+      "fileName": "Final.lottie",
+      "fileExt": "lottie",
+      "fileHash": "84e365a1cf0d46624b6d739da152103e",
+      "fileSize": 20825
+    },
+    {
+      "fileName": "03_Hand_RegistrationIcons_120x120.lottie",
+      "fileExt": "lottie",
+      "fileHash": "8e79a89996996ffab89d5b83d6ad331a",
+      "fileSize": 3721
+    },
+    {
+      "fileName": "vecteezy_summer-background-vector-design-hello-summer-concept_8014119.jpg",
+      "fileExt": "jpg",
+      "fileHash": "c7f46f242a864da9232ec4fdc8e0db85",
+      "fileSize": 395679
+    },
+    {
+      "fileName": "vecteezy_abstract-shape-background_en0221.jpg",
+      "fileExt": "jpg",
+      "fileHash": "7de1f01e8d427210ff38bac8647efbb3",
+      "fileSize": 900878
+    },
+    {
+      "fileName": "Comp 1.lottie",
+      "fileExt": "lottie",
+      "fileHash": "cb65cabe43c098114ef932898c40476e",
+      "fileSize": 3100
+    },
+    {
+      "fileName": "vecteezy_vector-abstract-cloud-background-for-text-on-blank_6621851.jpg",
+      "fileExt": "jpg",
+      "fileHash": "ed13c795e759e87f3b0a4575a128eefb",
+      "fileSize": 118073
+    },
+    {
+      "fileName": "7ef840ef893dfc2f18fbd55367b318cf.gif",
+      "fileExt": "gif",
+      "fileHash": "eee4a9108e96eca89262a0bb00ed4d15",
+      "fileSize": 273794
+    }
+  ],
+  "modules": [
+    {
+      "id": 1,
+      "name": "New Module"
+    }
+  ],
+  "lessons": [
+    {
+      "id": 1,
+      "moduleId": 1,
+      "name": "New Lesson"
+    }
+  ],
+  "slides": [
+    {
+      "id": 12,
+      "moduleId": 1,
+      "lessonId": 1,
+      "name": "Scroll Hint",
+      "templateName": "simple-text",
+      "templateVersion": "1.0",
+      "content": {
+        "body": "#",
+        "bgImage.url": "eee4a9108e96eca89262a0bb00ed4d15.gif",
+        "bgImage.alt": "Scroll Hint"
+      },
+      "validationErrors": {}
+    },
+    {
+      "id": 1,
+      "moduleId": 1,
+      "lessonId": 1,
+      "name": "Welcome",
+      "templateName": "lottie-animation",
+      "templateVersion": "1.0",
+      "content": {
+        "body": "# Welcome to your new course!\n\nLet's get started!",
+        "alignment": "center",
+        "lottie": "84e365a1cf0d46624b6d739da152103e.lottie",
+        "duration": "2000",
+        "size": "lg"
+      },
+      "validationErrors": {}
+    },
+    {
+      "id": 3,
+      "moduleId": 1,
+      "lessonId": 1,
+      "name": "Let's Get Started",
+      "templateName": "simple-text",
+      "templateVersion": "1.0",
+      "content": {
+        "body": "# Let's Get It Started In Here\n\nWe're *so* excited to see what you build with Scrowl! We believe in universal design, and information being accessibile to everyone.\n\n---\n\n*\"Scrowl has changed the way I design and build new courses. Everyone loves them, my boss thinks I'm a genius, and she can't wait to give me a raise 💰.\"*\n>  🤓 *Janet A.*\n\n‍\n*\"I can't believe this software is free! Let me send you a sandwich as a thank you!\"*\n>  🥪 *Peter T.*",
+        "animateLists": "all",
+        "bgImage.url": "7de1f01e8d427210ff38bac8647efbb3.jpg",
+        "bgImage.alt": "Abstract Background"
+      },
+      "validationErrors": {}
+    },
+    {
+      "id": 7,
+      "moduleId": 1,
+      "lessonId": 1,
+      "name": "Keep Scrolling!",
+      "templateName": "lottie-animation",
+      "templateVersion": "1.0",
+      "content": {
+        "body": "",
+        "lottie": "cb65cabe43c098114ef932898c40476e.lottie",
+        "duration": "2000",
+        "alignment": "center",
+        "scrollOffset": "0"
+      },
+      "validationErrors": {}
+    },
+    {
+      "id": 2,
+      "moduleId": 1,
+      "lessonId": 1,
+      "name": "We Love Dogs",
+      "templateName": "simple-text",
+      "templateVersion": "1.0",
+      "content": {
+        "body": "# 🦉➕ 🐶\n‍\n#### 👇\n‍\n## ♥️♥️♥️",
+        "alignment": "center",
+        "animateLists": "",
+        "bgImage.url": "ed13c795e759e87f3b0a4575a128eefb.jpg",
+        "bgImage.alt": "Vector cloud pattern"
+      },
+      "validationErrors": {}
+    },
+    {
+      "id": 10,
+      "moduleId": 1,
+      "lessonId": 1,
+      "name": "Keep Scrolling!",
+      "templateName": "lottie-animation",
+      "templateVersion": "1.0",
+      "content": {
+        "body": "",
+        "lottie": "cb65cabe43c098114ef932898c40476e.lottie",
+        "duration": "2000",
+        "alignment": "center",
+        "scrollOffset": "0"
+      },
+      "validationErrors": {}
+    },
+    {
+      "id": 9,
+      "moduleId": 1,
+      "lessonId": 1,
+      "name": "Good Luck",
+      "templateName": "simple-text",
+      "templateVersion": "1.0",
+      "content": {
+        "body": "# Good Luck & See You Later",
+        "alignment": "center",
+        "animateLists": ""
+      },
+      "validationErrors": {}
+    },
+    {
+      "id": 5,
+      "moduleId": 1,
+      "lessonId": 1,
+      "name": "See You Later",
+      "templateName": "lottie-animation",
+      "templateVersion": "1.0",
+      "content": {
+        "body": "",
+        "lottie": "8e79a89996996ffab89d5b83d6ad331a.lottie",
+        "alignment": "bottom right",
+        "duration": "2000",
+        "bgImage.url": "c7f46f242a864da9232ec4fdc8e0db85.jpg",
+        "bgImage.alt": "Summer Background"
+      },
+      "validationErrors": {}
+    }
+  ],
+  "glossaryTerms": [],
+  "resources": []
+}

@@ -1,0 +1,181 @@
+.VideoControlBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30px;
+
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 10000;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, background-color 0.2s;
+
+  &.visible {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  button {
+    color: $bg-color-lighten-20;
+    background: none;
+    border: none;
+    // border:1px solid black;
+    width: 36px;
+    height: 24px;
+    margin-left: 10px;
+    margin-top: 3px;
+    font-size: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    i.fa-volume {
+      font-size: 19px;
+      padding-top: 4px;
+    }
+
+    i.fa-closed-captioning {
+      font-size: 19px;
+      padding-top: 4px;
+    }
+
+    &.captions {
+      color: $bg-color-lighten-40;
+      margin-left: 6px;
+
+      &.active i {
+        color: $bg-color-lighten-20;
+        border-bottom: 2px solid $bg-color-lighten-20;
+        height: 23px;
+      }
+    }
+
+    &:hover {
+      color: $bg-color;
+
+      i {
+        color: $bg-color !important;
+      }
+    }
+  }
+
+  .scrub-bar {
+    margin-left: 10px;
+    // background:black;
+    width: calc(100% - 155px);
+    opacity: 1;
+    transition: opacity 0.2s;
+
+    .bar {
+      background: $bg-color-transparent-70;
+      width: calc(100% - 75px);
+      height: 4px;
+      margin-top: 14px;
+      border-radius: 20px;
+
+      .fill {
+        background: $bg-color-lighten-20;
+        width: 0%;
+        height: 4px;
+        border-radius: 20px;
+        position: relative;
+
+        button.handle {
+          background: transparent;
+          width: 10px;
+          height: 10px;
+          margin: 0;
+          padding: 0;
+          float: right;
+          margin-top: -3px;
+          border-radius: 10px;
+
+          position: fixed;
+          left: -10px;
+        }
+
+        button.handle:focus {
+          background: $bg-color;
+          position: initial;
+          left: unset;
+        }
+      }
+      float: left;
+    }
+
+    .timestamp {
+      color: $bg-color;
+      width: 75px;
+      text-align: right;
+      float: right;
+      margin-top: 9px;
+      font-size: 12px;
+    }
+  }
+
+  button.replay-button {
+    position: absolute;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+    width: 90px;
+    height: 28px;
+    padding-bottom: 3px;
+    margin-left: 13px;
+    border-radius: 5px 5px 0 0;
+
+    i {
+      margin-right: 8px;
+      pointer-events: none;
+    }
+
+    span {
+      pointer-events: none;
+    }
+  }
+
+  &.replay {
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 35001;
+
+    .scrub-bar {
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    button {
+      opacity: 0;
+      pointer-events: none;
+
+      &.replay-button {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+  }
+}
+
+.captions-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 5px;
+  text-align: center;
+  z-index: 35000;
+  transition: bottom 0.25s;
+
+  &.control-bar-visible {
+    bottom: 35px;
+  }
+  .caption {
+    display: table;
+    padding: 0.3rem;
+    font-size: 1.1rem;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    margin: auto;
+  }
+}

@@ -1,0 +1,22 @@
+$bg-color: #1d1d1f;
+
+$bg-color-lighten-20: lighten($bg-color, 20%);
+$bg-color-lighten-40: lighten($bg-color, 40%);
+$bg-color-transparent-97: transparentize($bg-color, 0.97);
+$bg-color-transparent-70: transparentize($bg-color, 0.7);
+
+$bg-light-color: #fbfbfb;
+$bg-light-color-darken-05: darken($bg-light-color, 5%);
+
+$text-dark-color: #1d1d1f;
+$text-dark-a11y-color: #72727e;
+$text-dark-a11y-color-50: transparentize($text-dark-a11y-color, 0.5);
+
+$text-light-color: #fbfbfd;
+$text-light-a11y-color: #9f9fa8;
+
+$hr-light-color: #c0c0c0;
+$hr-very-light-color: lighten($hr-light-color, 10%);
+$hr-light-color-transparent: #c0c0c000;
+
+$link-color: #06c;

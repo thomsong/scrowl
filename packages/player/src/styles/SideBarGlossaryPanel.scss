@@ -1,0 +1,47 @@
+.SideBarGlossaryPanel {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: calc(100% - 49px);
+
+  .letter-terms {
+    header {
+      // background: #f3f3f3;
+      background: $bg-light-color-darken-05;
+      padding: 6px 15px;
+      font-size: 15px;
+      font-weight: 600;
+      // margin-bottom: 10px;
+      border-top: 1px solid $hr-very-light-color;
+      border-bottom: 1px solid $hr-very-light-color;
+
+      position: sticky;
+      top: 0px;
+
+      // &:first-of-type {
+      //   border-top-color: transparent;
+      // }
+    }
+
+    .term {
+      user-select: text;
+
+      padding: 3px 15px;
+
+      &:first-of-type {
+        margin-top: 15px;
+      }
+
+      .word {
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .definition {
+        margin-top: 7px;
+        margin-bottom: 20px;
+        line-height: 16px;
+        font-size: 13px;
+      }
+    }
+  }
+}

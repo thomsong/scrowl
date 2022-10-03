@@ -1,0 +1,52 @@
+#TEMPLATE {
+  .slide-container {
+    background: #fbfbfb;
+    width: 100vw;
+    height: 100vh;
+
+    background-position: 50% 50%;
+    background-size: cover;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    &.left {
+      justify-content: start;
+    }
+
+    &.right {
+      justify-content: end;
+    }
+
+    &.top {
+      align-items: start;
+    }
+
+    &.bottom {
+      align-items: end;
+    }
+
+    .lottie {
+      // margin: auto;
+      margin: 16px;
+      width: 75%;
+
+      &.lg {
+        width: 100%;
+      }
+
+      &.md {
+        width: 75%;
+      }
+
+      &.sm {
+        width: 50%;
+      }
+
+      &.xs {
+        width: 30%;
+      }
+    }
+  }
+}

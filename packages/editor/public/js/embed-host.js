@@ -1,0 +1,1 @@
+../../../../public/js/embed-host.js

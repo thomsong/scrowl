@@ -1,0 +1,39 @@
+.scrowl--start {
+  h1 {
+    font-weight: 600;
+    .owl-logo {
+      margin-right: 20px;
+    }
+
+    small {
+      font-size: 20px;
+      font-weight: 400;
+    }
+  }
+
+  h2 {
+    font-weight: 600;
+  }
+
+  span.material-symbols-outlined {
+    font-weight: 400;
+    font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 100, "opsz" 20;
+  }
+
+  .view-more {
+    margin-top: 5px;
+    font-size: 14px;
+  }
+
+  .course-list-container {
+    // background-color: red;
+
+    height: 260px;
+    overflow: auto;
+    overflow-x: hidden;
+
+    .nav-item {
+      //   width: 100%;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+#TEMPLATE {
+  .slide-container {
+    width: 100vw;
+    height: 100vh;
+  }
+  .content {
+    .hero {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+
+      background-position: 50% 50%;
+      background-size: cover;
+
+      background-color: #fbfbfb;
+
+      .overlay {
+        background-color: rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+      }
+    }
+
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+
+    .body {
+      z-index: 1;
+      margin: auto;
+      width: 80vw;
+      max-width: 1000px;
+      font-size: min(2vw, 22px);
+
+      background-color: rgba(251, 251, 251, 0.9);
+      padding: 2rem;
+      max-height: calc(100vh - 32px);
+      overflow: hidden;
+
+      p {
+        margin: min(3vw, 20px) 0;
+        line-height: min(3.15vw, 28px);
+
+        &.header {
+          font-size: min(2.2vw, 24px);
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  &.edit-mode {
+    // background-color: red;
+    .can-focus {
+      cursor: pointer;
+    }
+
+    .has-focus {
+      background: #fff8e6;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+.VideoWrapper {
+  height: 66%;
+  margin: 1rem;
+  position: relative;
+
+  &.hover_controls {
+    cursor: pointer;
+
+    .control-overlay {
+      display: none;
+      background: #ffffff11;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      i {
+        display: none;
+      }
+    }
+    &:hover {
+      .control-overlay {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        i {
+          display: unset;
+          pointer-events: none;
+          font-size: 5em;
+          color: #ffffffaa;
+        }
+      }
+    }
+  }
+
+  video {
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  button.replay {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: $text-dark-color;
+    background: rgba(255, 255, 255, 0.9);
+    border: 0;
+    outline: 0;
+    box-shadow: inset 0px -2px 2px #00000014;
+
+    margin-left: 5px;
+    padding: 5px 10px 5px;
+
+    font-size: 14px;
+    border-radius: 5px 5px 0 0;
+    opacity: 0;
+    transition: opacity 0.25s;
+    pointer-events: none;
+
+    i {
+      margin-right: 7px;
+      font-size: 13px;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    &.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+  .video-overlay {
+    // background:#FF000022;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

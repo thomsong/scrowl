@@ -1,0 +1,127 @@
+.SideBarSearchPanel {
+  padding: 10px 10px 0px 10px;
+  height: calc(100% - 49px);
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  header {
+    margin-bottom: 15px;
+
+    h1 {
+      font-size: 17px;
+      line-height: 20px;
+      padding: 5px 5px 0px 5px;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 14px;
+      line-height: 10px;
+      padding: 5px 5px 0px 5px;
+      margin: 0;
+      font-weight: 400;
+
+      i {
+        font-size: 11px;
+        margin-right: 5px;
+        color: $text-dark-a11y-color;
+      }
+    }
+  }
+
+  button {
+    i,
+    span {
+      pointer-events: none;
+    }
+  }
+
+  div.module {
+    // margin-bottom:10px;
+
+    i.fa-chevron-down {
+      display: none;
+    }
+
+    &.expanded {
+      i.fa-chevron-right {
+        display: none;
+      }
+
+      i.fa-chevron-down {
+        display: inline;
+      }
+    }
+
+    button.title {
+      // background: red;
+      display: flex;
+      // background: red;
+      // border:1px solid yellow;
+      padding: 10px 5px;
+      font-size: 15px;
+      line-height: 20px;
+      text-decoration: none;
+      color: $text-dark-color;
+
+      i {
+        font-size: 10px;
+        margin-top: 6px;
+        margin-right: 10px;
+        min-width: 10px;
+        text-align: center;
+      }
+
+      // background:red;
+
+      &:hover {
+        background: $bg-color-transparent-97;
+      }
+    }
+
+    ul.results {
+      display: none;
+      list-style-type: none;
+      margin: 0px 20px 10px 18px;
+      padding: 0;
+      border-bottom: 1px solid #dadada;
+      padding-bottom: 10px;
+
+      li {
+        font-size: 14px;
+        line-height: 20px;
+        margin: 1px 0px;
+
+        button {
+          display: flex;
+          text-decoration: none;
+          color: $text-dark-color;
+
+          // background: red;
+          padding: 8px 6px;
+          i {
+            font-size: 14px;
+            margin-top: 2px;
+            margin-right: 8px;
+            min-width: 16px;
+            text-align: center;
+            color: $text-dark-a11y-color;
+          }
+
+          span {
+            display: block;
+            color: $text-dark-a11y-color;
+          }
+        }
+      }
+    }
+
+    &.expanded {
+      ul.results {
+        display: block;
+      }
+    }
+  }
+}

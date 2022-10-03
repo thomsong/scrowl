@@ -1,0 +1,10 @@
+{
+  "name": "blueprints",
+  "version": "1.0.0",
+  "description": "Core Scrowl Blueprints",
+  "author": "Greg Thomson <greg@osg.ca>",
+  "license": "MIT",
+  "scripts": {
+    "build": "node ./build.js"
+  }
+}

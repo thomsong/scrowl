@@ -1,0 +1,24 @@
+.sld-host {
+  // Reset all styles to browser default
+  // This prevents the editor/player/lms styles from
+  // affecting the slides/theme
+  * {
+    // all: initial;
+  }
+
+  @import "reset";
+
+  @import "boilerplate";
+  @import "normalize";
+  @import "flexboxgrid";
+
+  @import "variables";
+  @import "fonts";
+  @import "defaults";
+
+  @import "header";
+  @import "link";
+  @import "table";
+
+  @import "markdown";
+}

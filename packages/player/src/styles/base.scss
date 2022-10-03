@@ -1,0 +1,53 @@
+html {
+  --sidebar-menu-width: 400px;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: $bg-light-color;
+
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  &.scroll-lock {
+    overflow: hidden;
+  }
+
+  &.slideshow-mode {
+    overflow: hidden;
+    // Hide scrollbar for IE, Edge and Firefox
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    // Hide scrollbar for Chrome, Safari and Opera
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:active:focus {
+  outline: none;
+}
+
+i {
+  pointer-events: none;
+}
