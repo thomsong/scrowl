@@ -4,7 +4,7 @@
 - Tested with Node v16.16.0
 - Tested with npm v8.11.0
 
-Requires Lerna
+### Requires Lerna
 
 ```
 npx lerna
@@ -12,10 +12,9 @@ npx lerna
 or
 
 npm install --global lerna
-
 ```
 
-Bootstrap command runs npm init on all packages
+### Bootstrap command runs npm init on all packages
 
 ```
 cd ./
