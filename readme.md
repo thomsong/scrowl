@@ -7,14 +7,13 @@
 Requires Lerna
 
 ```
-npm install --global lerna
-
-or use...
-
 npx lerna
 
-```
+or
 
+npm install --global lerna
+
+```
 
 Bootstrap command runs npm init on all packages
 
