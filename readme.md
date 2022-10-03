@@ -4,9 +4,16 @@
 - Tested with Node v16.16.0
 - Tested with npm v8.11.0
 
-Requires Installing Lerna
+Requires Lerna
 
-```npm install --global lerna```
+```
+npm install --global lerna
+
+or use...
+
+npx lerna
+
+```
 
 
 Bootstrap command runs npm init on all packages
@@ -26,4 +33,7 @@ lerna bootstrap
 - Editor
 - Electron platform builds
 
-```./build.sh```
+```
+cd ./
+./build.sh
+```
