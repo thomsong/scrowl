@@ -1,8 +1,16 @@
 # Scrowl Editor
 
-# Getting Started
-lerna botstrap
+## Getting Started
+```./lerna botstrap```
 
-# Building
-## Build all core templates, themes, blueprints, player & editor
-./build.sh
+## Building
+### Builds
+- Core templates
+- Core themes
+- Core blueprints
+- Player
+- Host
+- Editor
+- Electron platform builds
+
+```./build.sh```
