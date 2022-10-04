@@ -67,3 +67,7 @@ npm run start
 
 #### Open URL In Browser
 [http://localhost:3001/](http://localhost:3001/)
+
+#### Player development course
+player/public/sample_course contains both the course data and assets used in the player when running standalone
+
