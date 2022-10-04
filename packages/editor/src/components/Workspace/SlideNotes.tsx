@@ -70,7 +70,7 @@ function SlideNotes(props: any) {
           transition={{ duration: reducedAnimations ? 0 : 0.1 }}
         >
           <textarea
-            style={{ minHeight: "5em" }}
+            style={{ minHeight: "72px" }}
             className="form-control scrowl-workspace-footer__textarea"
             value={slideNotes}
             onChange={(e) => {

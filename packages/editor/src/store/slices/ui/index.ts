@@ -165,9 +165,8 @@ const handleGlobalAction = createAsyncThunk(
         break;
 
       case "CLOSE_WINDOW":
-        // store.dispatch(courseActions.closeWindow());
-
         const closeResult: any = await store.dispatch(courseActions.closeCourse());
+
         if (closeResult.payload === false) {
           // CANCEL
           return;

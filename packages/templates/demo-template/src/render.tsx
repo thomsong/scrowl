@@ -75,7 +75,11 @@ function Template(props: any) {
     );
 
     return () => {
-      props.controller.removeScene(scrollScenes.current);
+      scrollScenes.current.forEach((scene) => {
+        scene.destroy(true);
+        props.controller.removeScene(scene);
+      });
+
       scrollScenes.current = [];
     };
   }, []);

@@ -73,7 +73,11 @@ function Template(props: any) {
     currentTimeline.add(target);
 
     return () => {
-      props.controller.removeScene(scrollScenes.current);
+      scrollScenes.current.forEach((scene) => {
+        scene.destroy(true);
+        props.controller.removeScene(scene);
+      });
+
       scrollScenes.current = [];
 
       currentTimeline.children.map((child: any) => {

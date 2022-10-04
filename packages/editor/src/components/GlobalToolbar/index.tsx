@@ -68,7 +68,9 @@ function GlobalToolbar() {
   const revertValue: any = React.useRef("");
 
   useEffect(() => {
-    setCourseNameWidth(courseNameSpanRef.current.offsetWidth);
+    const newWidth = courseNameSpanRef.current.offsetWidth + 12;
+
+    setCourseNameWidth(newWidth);
   }, [courseNameContent]);
 
   useEffect(() => {
@@ -86,9 +88,6 @@ function GlobalToolbar() {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedSlide]);
-
-  // dispatch(uiActions.launchPreview(PREVIEW_MODE.default));
-  //
 
   return (
     <motion.nav
@@ -117,7 +116,7 @@ function GlobalToolbar() {
               }
         }
       >
-        <span ref={courseNameSpanRef}>{courseSettings.name}</span>
+        <span ref={courseNameSpanRef}>{courseSettings.name.replace(/ /g, "\u00A0")}</span>
         <input
           style={{ width: courseNameWidth + 20 + "px" }}
           className="form-control"
@@ -133,14 +132,18 @@ function GlobalToolbar() {
           onFocus={(e: any) => {
             revertValue.current = e.target.value;
           }}
+          onBlur={(e: any) => {
+            let finalVal = e.target.value;
+            finalVal = finalVal.replace(/\s\s+/g, " ");
+
+            setCourseNameContent(finalVal);
+            dispatch(courseActions.setCourseName(finalVal));
+          }}
           onKeyDown={(e: any) => {
             if (e.key === "Enter") {
               e.target.blur();
             } else if (e.key === "Escape") {
               e.target.value = revertValue.current;
-
-              setCourseNameContent(e.target.value);
-              dispatch(courseActions.setCourseName(e.target.value));
               e.target.blur();
             }
           }}
