@@ -1,5 +1,7 @@
 # Scrowl Editor
 
+---
+
 ## Getting Started
 ### Requirements
 - Node (Tested with v16.16.0)
@@ -14,6 +16,8 @@ or
 
 npm install --global lerna
 ```
+
+---
 
 ## Initializing The Project
 ### Bootstrap command runs npm init on all packages
@@ -36,6 +40,8 @@ lerna bootstrap
 ./build.sh
 ```
 
+---
+
 ## Development
 ### Run in multiple tabs
 
@@ -50,3 +56,14 @@ Electron app
 cd packages/editor/
 npm run start
 ```
+
+---
+
+### Running only the player
+```
+cd packages/player/
+npm run start
+```
+
+#### Open URL In Browser
+[http://localhost:3001/dev.html](http://localhost:3001/dev.html)
