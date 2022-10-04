@@ -4,7 +4,7 @@ import ScrowlTemplate from "./ScrowlTemplate";
 import HostProxy from "./HostProxy";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-// const a11yEmoji = require("@fec/remark-a11y-emoji"); // Not needed in editor
+const a11yEmoji = require("@fec/remark-a11y-emoji"); // Not needed in editor
 import lottie from "lottie-web";
 
 class Scrowl {
@@ -42,7 +42,7 @@ class Scrowl {
           ),
         }}
         children={props.children}
-        remarkPlugins={[remarkGfm]} // a11yEmoji Not needed in editor
+        remarkPlugins={[remarkGfm, a11yEmoji]}
       />
     );
   }
