@@ -69,5 +69,5 @@ npm run start
 [http://localhost:3001/](http://localhost:3001/)
 
 #### Player development course
-```packages/player/public/sample_course/``` contains both the course data and assets used in the player when running standalone. This folder will not be included in the final build.
+```packages/player/public/course/``` contains both the course data and assets used in the player when running standalone. This folder will not be included in the final build.
 
