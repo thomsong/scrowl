@@ -1,10 +1,11 @@
 # Scrowl Editor
 
 ## Getting Started
-- Tested with Node v16.16.0
-- Tested with npm v8.11.0
+### Requirements
+- Node (Tested with v16.16.0)
+- npm (Tested with v8.11.0)
 
-### Requires Lerna
+#### Lerna
 
 ```
 npx lerna
@@ -14,6 +15,7 @@ or
 npm install --global lerna
 ```
 
+## Init
 ### Bootstrap command runs npm init on all packages
 
 ```
