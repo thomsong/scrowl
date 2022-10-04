@@ -1,6 +1,8 @@
 .continue-slide {
   border-top: 1px solid rgba(0, 0, 0, 0.3);
   text-align: center;
+  z-index: 5000;
+  position: absolute;
 
   button {
     width: 100vw;
@@ -21,10 +23,10 @@
       color: var(--link-color);
     }
 
-    .arrow {
-      color: var(--link-color);
-      margin-top: 3px;
+    svg {
       display: block;
+      margin: auto;
+      margin-top: 3px;
     }
   }
 }
