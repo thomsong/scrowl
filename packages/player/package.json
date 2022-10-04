@@ -24,8 +24,8 @@
   },
   "homepage": "./",
   "scripts": {
-    "start": "ENVIRONMENT=dev PORT=3001 react-app-rewired start",
-    "build": "react-app-rewired build",
+    "start": "ENVIRONMENT=dev REACT_APP_COURSE_PATH=./sample_course PORT=3001 react-app-rewired start",
+    "build": "REACT_APP_COURSE_PATH=. react-app-rewired build",
     "postbuild": "node ./post_build.js"
   },
   "eslintConfig": {

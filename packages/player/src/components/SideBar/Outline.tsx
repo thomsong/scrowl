@@ -27,152 +27,6 @@ function Outline(props: any) {
     subtitle: (courseState.publish && courseState.publish.description) || "",
     // time: "60 minutes",
     modules: [],
-    _modules: [
-      {
-        id: 100,
-        name: "An Introduction To Harassment & Discrimination",
-        time: "20 minutes",
-        lessons: [
-          {
-            id: 1,
-            name: "What Is Sexual Harassment?",
-            time: "5 minutes",
-            state: "complete",
-          },
-
-          {
-            id: 2,
-            name: "Building a Respectful Workplace",
-            time: "5 minutes",
-          },
-
-          {
-            id: 3,
-            name: "What to Do If You're Being Sexually Harassed at Work",
-            time: "5 minutes",
-          },
-
-          {
-            id: 4,
-            name: "Bystander Intervention",
-          },
-
-          {
-            id: 5,
-            name: "Next Steps",
-            state: "locked",
-          },
-        ],
-      },
-      {
-        id: 200,
-        name: "Sexual Harassment",
-        time: "20 minutes",
-        lessons: [
-          {
-            id: 11,
-            name: "What Is Sexual Harassment?",
-            time: "5 minutes",
-            state: "complete",
-          },
-
-          {
-            id: 12,
-            name: "Building a Respectful Workplace",
-            time: "5 minutes",
-          },
-
-          {
-            id: 13,
-            name: "What to Do If You're Being Sexually Harassed at Work",
-            time: "5 minutes",
-          },
-
-          {
-            id: 14,
-            name: "Bystander Intervention",
-          },
-
-          {
-            id: 15,
-            name: "Next Steps",
-            state: "locked",
-          },
-        ],
-      },
-      {
-        id: 300,
-        name: "Additional Training For Supervisors",
-        time: "15 minutes",
-        lessons: [
-          {
-            id: 21,
-            name: "What Is Sexual Harassment?",
-            time: "5 minutes",
-            state: "complete",
-          },
-
-          {
-            id: 22,
-            name: "Building a Respectful Workplace",
-            time: "5 minutes",
-          },
-
-          {
-            id: 23,
-            name: "What to Do If You're Being Sexually Harassed at Work",
-            time: "5 minutes",
-          },
-
-          {
-            id: 24,
-            name: "Bystander Intervention",
-          },
-
-          {
-            id: 25,
-            name: "Next Steps",
-            state: "locked",
-          },
-        ],
-      },
-      {
-        id: 400,
-        name: "Conclusion",
-        time: "5 minutes",
-        lessons: [
-          {
-            id: 31,
-            name: "What Is Sexual Harassment?",
-            time: "5 minutes",
-            state: "complete",
-          },
-
-          {
-            id: 32,
-            name: "Building a Respectful Workplace",
-            time: "5 minutes",
-          },
-
-          {
-            id: 33,
-            name: "What to Do If You're Being Sexually Harassed at Work",
-            time: "5 minutes",
-          },
-
-          {
-            id: 34,
-            name: "Bystander Intervention",
-          },
-
-          {
-            id: 35,
-            name: "Next Steps",
-            state: "locked",
-          },
-        ],
-      },
-    ],
   };
 
   courseState.modules.map((module) => {
@@ -190,6 +44,9 @@ function Outline(props: any) {
 
     return null;
   });
+  outlineData.subtitle = "Subtitle Here";
+  outlineData.time = "60 Minutes";
+
   return (
     <div className="SideBarOverviewPanel" style={{ display: props.active ? "block" : "none" }}>
       <header>
@@ -276,6 +133,7 @@ function Outline(props: any) {
 
                     if (lessonState === "locked") {
                       buttonDiabled = true;
+                      className = "locked";
                     } else if (lessonState === "open") {
                       className = "checked";
                     } else if (lessonState === "active") {

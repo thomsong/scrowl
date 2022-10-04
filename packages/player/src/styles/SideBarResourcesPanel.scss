@@ -5,6 +5,13 @@
   overflow-y: scroll;
   overflow-x: hidden;
 
+  svg.MuiSvgIcon-root {
+    height: 16px;
+    margin-top: 0px;
+    margin-right: 2px;
+    margin-left: -4px;
+  }
+
   header {
     margin-bottom: 15px;
 
@@ -43,10 +50,6 @@
         display: block;
         font-size: 14px;
         font-weight: 500;
-
-        span.material-symbols-rounded {
-          line-height: 16px;
-        }
 
         &:hover {
           text-decoration: underline;

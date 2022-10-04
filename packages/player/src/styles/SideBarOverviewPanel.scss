@@ -26,13 +26,22 @@
 
     span.time {
       font-size: 12px;
-      padding: 0px 5px 10px 5px;
+      padding: 0px 5px 0px 5px;
       font-weight: 400;
       color: $text-dark-a11y-color;
+      margin-top: 8px;
+      display: block;
 
       i {
         font-size: 11px;
         margin-right: 4px;
+      }
+
+      svg.MuiSvgIcon-root {
+        height: 13px;
+        margin-top: -2px;
+        margin-left: -6px;
+        margin-right: -2px;
       }
     }
   }
@@ -92,6 +101,11 @@
         text-align: center;
       }
 
+      svg.MuiSvgIcon-root {
+        height: 18px;
+        margin-top: 0px;
+      }
+
       // background:red;
 
       &:hover {
@@ -140,6 +154,16 @@
           }
         }
 
+        &.locked {
+          svg.MuiSvgIcon-root {
+            height: 12px;
+            margin-top: 1px;
+            margin-right: 0px;
+            margin-left: 0px;
+            margin-bottom: 1px;
+          }
+        }
+
         &.active button,
         &.checked button {
           cursor: pointer;
@@ -174,10 +198,8 @@
           user-select: none;
           opacity: 0.5;
           span {
-            &:not(.material-symbols-rounded) {
-              text-decoration: line-through;
-              text-decoration-color: red;
-            }
+            text-decoration: line-through;
+            text-decoration-color: red;
           }
         }
       }
@@ -195,10 +217,8 @@
       user-select: none;
       opacity: 0.5;
       span {
-        &:not(.material-symbols-rounded) {
-          text-decoration: line-through;
-          text-decoration-color: red;
-        }
+        text-decoration: line-through;
+        text-decoration-color: red;
       }
     }
   }

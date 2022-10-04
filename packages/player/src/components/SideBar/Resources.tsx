@@ -1,4 +1,4 @@
-import AttachEmailIcon from "@mui/icons-material/AttachEmail";
+import AttachEmailOutlinedIcon from "@mui/icons-material/AttachEmailOutlined";
 
 function Resources(props: any) {
   const _resources: any = [...(window as any).courseData.resources];
@@ -20,7 +20,7 @@ function Resources(props: any) {
                 target="new"
                 style={{ cursor: "pointer" }}
               >
-                <AttachEmailIcon />
+                <AttachEmailOutlinedIcon />
 
                 <span>{resource.title}</span>
               </a>

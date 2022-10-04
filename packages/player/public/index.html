@@ -12,8 +12,15 @@
     <script src="./static/js/debug.addIndicators.js"></script>
     <script src="./static/js/require.js"></script>
 
-    <script src="./course_data.js"></script>
+    <script src="%REACT_APP_COURSE_PATH%/course_data.js"></script>
     <script>
+      const devMode = '%REACT_APP_COURSE_PATH%' === './sample_course';
+
+      if (!window.courseData) { 
+        document.write('Error Loading Course Data');
+        alert('Error Loading Course Data');
+      }
+
       if (!window.courseData.preview) { 
         window.courseData.preview = {};
       }
