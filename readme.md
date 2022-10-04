@@ -39,10 +39,12 @@ lerna bootstrap
 ## Development
 ### Run in multiple tabs
 
+React app
 ```
 npm run start:server
 ```
-&&
+
+Electron app
 ```
 npm run start
 ```
