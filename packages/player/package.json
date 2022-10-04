@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "embed-host": "*",
     "find-remove": "^4.0.4",
     "lottie-web": "^5.9.6",
     "node-sass": "^7.0.3",
@@ -23,8 +24,8 @@
   },
   "homepage": "./",
   "scripts": {
-    "start": "ENVIRONMENT=dev PORT=3001 react-scripts start",
-    "build": "react-scripts build",
+    "start": "ENVIRONMENT=dev PORT=3001 react-app-rewired start",
+    "build": "react-app-rewired build",
     "postbuild": "node ./post_build.js"
   },
   "eslintConfig": {
@@ -33,7 +34,8 @@
     ]
   },
   "devDependencies": {
-    "@fec/remark-a11y-emoji": "^3.1.0"
+    "@fec/remark-a11y-emoji": "^3.1.0",
+    "react-app-rewired": "^2.2.1"
   },
   "browserslist": {
     "production": [

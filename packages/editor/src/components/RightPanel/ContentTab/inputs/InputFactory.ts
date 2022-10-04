@@ -7,17 +7,7 @@ import CheckboxText from "./CheckboxText";
 import NumberSpinner from "./NumberSpinner";
 
 import ImageAsset from "./ImageAsset";
-
-export enum LAYOUT_INPUT_TYPE {
-  Asset = "ASSET",
-  Textbox = "TEXTBOX",
-  Checkbox = "CHECKBOX",
-  RangeSlider = "RANGE_SLIDER",
-  Select = "SELECT",
-  ColorPicker = "COLOR_PICKER",
-  CheckboxText = "CHECKBOX_TEXT",
-  NumberSpinner = "NUMBER_SPINNER",
-}
+import { LAYOUT_INPUT_TYPE } from "./Types";
 
 function InputFactory(type: LAYOUT_INPUT_TYPE): any {
   switch (type) {

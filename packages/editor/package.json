@@ -44,7 +44,7 @@
     "start:server": "ENVIRONMENT=dev PORT=3000 react-scripts start",
     "start": "ENVIRONMENT=dev npx electronmon .",
     "postinstall": "patch-package",
-    "build": "",
+    "build": "react-scripts build",
     "prerelease": "rm -rf dist && cd node_modules && ln -sf ../../../node_modules/electron",
     "release": "GENERATE_SOURCEMAP=false react-scripts build && electron-builder",
     "postrelease": "open dist/mac"

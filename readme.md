@@ -41,10 +41,12 @@ lerna bootstrap
 
 React app
 ```
+cd packages/editor/
 npm run start:server
 ```
 
 Electron app
 ```
+cd packages/editor/
 npm run start
 ```

@@ -8,7 +8,7 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
-    "declaration": true,
+    "declaration": false,
     "allowSyntheticDefaultImports": true
   },
   "include": ["src"]

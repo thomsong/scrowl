@@ -26,6 +26,7 @@ module.exports = (templatePath) => {
     },
 
     optimization: {
+      minimize: true,
       minimizer: [
         new TerserPlugin({
           extractComments: false,

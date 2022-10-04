@@ -6,8 +6,14 @@ import Scrowl from "./Scrowl";
 import store from "./store";
 import Player from "./Player";
 
+import { LAYOUT_INPUT_TYPE, MIGRATION_HINT } from "embed-host";
+
 const _window: any = window as any;
-_window["scrowl"] = Scrowl;
+_window["host"] = {
+  Scrowl,
+  LAYOUT_INPUT_TYPE,
+  MIGRATION_HINT,
+};
 _window["react"] = React;
 
 window.addEventListener("DOMContentLoaded", (event) => {

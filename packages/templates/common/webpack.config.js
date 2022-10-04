@@ -56,12 +56,13 @@ module.exports = (templatePath) => {
     },
 
     externals: {
-      "embed-host/dist": "scrowl",
+      "embed-host": "host",
       animejs: "anime",
       react: "react",
     },
 
     optimization: {
+      minimize: true,
       minimizer: [
         new TerserPlugin({
           extractComments: false,

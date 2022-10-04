@@ -1,33 +1,24 @@
-/* eslint-disable import/first */
 import * as ReactDOM from "react-dom/client";
+import * as React from "react";
+
 import ContextWrapper from "./ContextWrapper";
-export { LAYOUT_INPUT_TYPE } from "editor/src/components/RightPanel/ContentTab/inputs/InputFactory";
-
-export enum MIGRATION_HINT {
-  Header = "HEADER",
-  SubHeader = "SUB_HEADER",
-  BodyText = "BODY_TEXT",
-  BodyAlignment = "BODY_ALIGNMENT",
-  BulletPointList = "BULLET_POINT_LIST",
-  BulletPointCount = "BULLET_POINT_COUNT",
-  BulletPoint = "BULLET_POINT",
-  Address = "ADDRESS",
-  Hero = "HERO",
-  Time = "TIME",
-}
-
-const _window: any = window as any;
-
 import scrowl from "./Scrowl";
+import { LAYOUT_INPUT_TYPE, MIGRATION_HINT } from "./Types";
+
+export * from "./Types";
 export const Scrowl = scrowl;
 
-_window["scrowl"] = Scrowl;
+const Host = {
+  Scrowl,
+  LAYOUT_INPUT_TYPE,
+  MIGRATION_HINT,
+};
 
-import * as React from "react";
-_window["react"] = React;
-
+const _window: any = window as any;
 // Init it as empty
 _window["templates"] = {};
+_window["host"] = Host;
+_window["react"] = React;
 
 // Needs to be late since it depends on previous imports
 import EmbedHost from "./EmbedHost";
