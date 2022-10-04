@@ -1,9 +1,6 @@
 import Textbox from "./Textbox";
 import Checkbox from "./Checkbox";
-import RangeSlider from "./RangeSlider";
 import Select from "./Select";
-import ColorPicker from "./ColorPicker";
-import CheckboxText from "./CheckboxText";
 import NumberSpinner from "./NumberSpinner";
 
 import ImageAsset from "./ImageAsset";
@@ -17,14 +14,8 @@ function InputFactory(type: LAYOUT_INPUT_TYPE): any {
       return ImageAsset;
     case LAYOUT_INPUT_TYPE.Checkbox:
       return Checkbox;
-    case LAYOUT_INPUT_TYPE.RangeSlider:
-      return RangeSlider;
     case LAYOUT_INPUT_TYPE.Select:
       return Select;
-    case LAYOUT_INPUT_TYPE.ColorPicker:
-      return ColorPicker;
-    case LAYOUT_INPUT_TYPE.CheckboxText:
-      return CheckboxText;
     case LAYOUT_INPUT_TYPE.NumberSpinner:
       return NumberSpinner;
 
