@@ -15,11 +15,10 @@ or
 npm install --global lerna
 ```
 
-## Init
+## Initializing The Project
 ### Bootstrap command runs npm init on all packages
 
 ```
-cd ./
 lerna bootstrap
 ```
 
@@ -34,6 +33,16 @@ lerna bootstrap
 - Electron platform builds
 
 ```
-cd ./
 ./build.sh
+```
+
+## Development
+### Run in multiple tabs
+
+```
+npm run start:server
+```
+&&
+```
+npm run start
 ```
