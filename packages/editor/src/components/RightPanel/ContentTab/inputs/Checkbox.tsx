@@ -3,7 +3,7 @@ import React from "react";
 import { LAYOUT_INPUT_TYPE, BaseInputProps, DefaultInputProps } from "./Types";
 
 export interface InputProps extends BaseInputProps {
-  options?: any;
+  type: LAYOUT_INPUT_TYPE.Checkbox;
 }
 
 const defaultInputProps: InputProps = {
@@ -11,7 +11,6 @@ const defaultInputProps: InputProps = {
 
   type: LAYOUT_INPUT_TYPE.Checkbox,
   label: "Checkbox",
-  options: [],
 };
 
 function Checkbox(_props: InputProps) {

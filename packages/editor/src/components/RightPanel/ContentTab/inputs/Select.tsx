@@ -4,6 +4,7 @@ import { groupElement } from "./GroupElement";
 import { LAYOUT_INPUT_TYPE, BaseInputProps, DefaultInputProps } from "./Types";
 
 export interface InputProps extends BaseInputProps {
+  type: LAYOUT_INPUT_TYPE.Select;
   options?: any;
   pre?: any;
   post?: any;

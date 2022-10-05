@@ -1,7 +1,16 @@
-import { LAYOUT_INPUT_TYPE, MIGRATION_HINT } from "embed-host";
+import {
+  LAYOUT_INPUT_TYPE,
+  MIGRATION_HINT,
+  TemplateLayout,
+  InputFieldsetProps,
+  InputTextBoxProps,
+  InputSelectProps,
+  InputAssetProps,
+  InputCheckboxProps,
+} from "embed-host";
 
-export function getLayout(payload: any): any {
-  const content = payload.content || {};
+export function getLayout(payload: any): TemplateLayout {
+  const content = payload.content;
 
   return {
     state: {},
@@ -15,33 +24,31 @@ export function getLayout(payload: any): any {
         lines: 10,
         autoGrow: 10,
         allowLinebreaks: true,
-      },
+      } as InputTextBoxProps,
 
       bgImage: {
-        type: "FIELDSET",
+        type: LAYOUT_INPUT_TYPE.Fieldset,
         label: "Background Image",
         fields: {
           alt: {
             type: LAYOUT_INPUT_TYPE.Textbox,
             label: "Alt Text",
             placeholder: "Image alt text",
-          },
+          } as InputTextBoxProps,
           url: {
             type: LAYOUT_INPUT_TYPE.Asset,
             assetType: "image",
             label: "Image",
-          },
-
+          } as InputAssetProps,
           bg: {
             type: LAYOUT_INPUT_TYPE.Checkbox,
             label: "Use As Background",
-            default: false,
-          },
+          } as InputCheckboxProps,
         },
       },
 
       options: {
-        type: "FIELDSET",
+        type: LAYOUT_INPUT_TYPE.Fieldset,
         label: "Options",
         fields: {
           alignment: {
@@ -66,16 +73,16 @@ export function getLayout(payload: any): any {
                 },
               ],
             },
-          },
+          } as InputSelectProps,
 
           showProgress: {
             type: LAYOUT_INPUT_TYPE.Checkbox,
             label: "Show Progress Bar",
-          },
+          } as InputCheckboxProps,
         },
-      },
+      } as InputFieldsetProps,
     },
-  };
+  } as TemplateLayout;
 }
 
 export function validate(payload: any) {

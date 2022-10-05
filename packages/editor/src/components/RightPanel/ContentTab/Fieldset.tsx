@@ -1,6 +1,14 @@
 import InputFactory from "./inputs/InputFactory";
 import { useAppSelector } from "../../../store/hooks";
 
+import { LAYOUT_INPUT_TYPE, BaseInputProps } from "./inputs/Types";
+
+export interface InputFieldsetProps {
+  type: LAYOUT_INPUT_TYPE.Fieldset;
+  label: string;
+  fields: { [key: string]: BaseInputProps };
+}
+
 interface PropsType {
   name: string;
   content: any;

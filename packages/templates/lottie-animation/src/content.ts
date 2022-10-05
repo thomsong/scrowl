@@ -1,6 +1,13 @@
-import { LAYOUT_INPUT_TYPE } from "embed-host";
+import {
+  LAYOUT_INPUT_TYPE,
+  TemplateLayout,
+  InputFieldsetProps,
+  InputTextBoxProps,
+  InputSelectProps,
+  InputAssetProps,
+} from "embed-host";
 
-export function getLayout(payload: any): any {
+export function getLayout(payload: any): TemplateLayout {
   return {
     state: {},
     schema: {
@@ -8,13 +15,13 @@ export function getLayout(payload: any): any {
         type: LAYOUT_INPUT_TYPE.Asset,
         assetType: "lottie",
         label: "Lottie Animation",
-      },
+      } as InputAssetProps,
 
       duration: {
         type: LAYOUT_INPUT_TYPE.Textbox,
         label: "Duration",
         placeholder: "Animation time",
-      },
+      } as InputTextBoxProps,
 
       alignment: {
         type: LAYOUT_INPUT_TYPE.Select,
@@ -32,7 +39,7 @@ export function getLayout(payload: any): any {
           { name: "Bottom", value: "bottom" },
           { name: "Bottom Right", value: "bottom right" },
         ],
-      },
+      } as InputSelectProps,
 
       size: {
         type: LAYOUT_INPUT_TYPE.Select,
@@ -43,7 +50,7 @@ export function getLayout(payload: any): any {
           { name: "Medium", value: "md", default: true },
           { name: "Large", value: "lg" },
         ],
-      },
+      } as InputSelectProps,
 
       scrollOffset: {
         type: LAYOUT_INPUT_TYPE.Select,
@@ -53,26 +60,26 @@ export function getLayout(payload: any): any {
           { name: "Half Offset", value: 0.5, default: true },
           { name: "Full Offset", value: 0 },
         ],
-      },
+      } as InputSelectProps,
 
       bgImage: {
-        type: "FIELDSET",
+        type: LAYOUT_INPUT_TYPE.Fieldset,
         label: "Background Image",
         fields: {
           alt: {
             type: LAYOUT_INPUT_TYPE.Textbox,
             label: "Alt Text",
             placeholder: "Image alt text",
-          },
+          } as InputTextBoxProps,
           url: {
             type: LAYOUT_INPUT_TYPE.Asset,
             assetType: "image",
             label: "Image",
-          },
+          } as InputAssetProps,
         },
-      },
+      } as InputFieldsetProps,
     },
-  };
+  } as TemplateLayout;
 }
 
 export function validate(payload: any) {

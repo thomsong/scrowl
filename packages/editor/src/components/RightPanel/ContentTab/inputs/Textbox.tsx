@@ -5,6 +5,7 @@ import Templater from "./templater";
 import { LAYOUT_INPUT_TYPE, BaseInputProps, DefaultInputProps } from "./Types";
 
 export interface InputProps extends BaseInputProps {
+  type: LAYOUT_INPUT_TYPE.Textbox;
   placeholder?: string;
 
   checkbox?: boolean;
@@ -18,6 +19,8 @@ export interface InputProps extends BaseInputProps {
   template?: string;
   pre?: any;
   post?: any;
+
+  focusRange?: [number, number];
 }
 
 const defaultInputProps: InputProps = {

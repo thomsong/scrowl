@@ -4,6 +4,7 @@ import Templater from "./templater";
 import { LAYOUT_INPUT_TYPE, BaseInputProps, DefaultInputProps } from "./Types";
 
 export interface InputProps extends BaseInputProps {
+  type: LAYOUT_INPUT_TYPE.NumberSpinner;
   placeholder?: string;
   template?: string;
 

@@ -1,6 +1,6 @@
-import { LAYOUT_INPUT_TYPE } from "embed-host";
+import { LAYOUT_INPUT_TYPE, TemplateLayout, InputTextBoxProps } from "embed-host";
 
-export function getLayout(payload: any): any {
+export function getLayout(payload: any): TemplateLayout {
   return {
     state: {},
     schema: {
@@ -13,9 +13,9 @@ export function getLayout(payload: any): any {
         autoGrow: 5,
         allowLinebreaks: true,
         maxLength: 2500,
-      },
+      } as InputTextBoxProps,
     },
-  };
+  } as TemplateLayout;
 }
 
 export function validate(payload: any) {

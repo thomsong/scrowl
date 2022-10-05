@@ -1,6 +1,13 @@
-import { LAYOUT_INPUT_TYPE, MIGRATION_HINT } from "embed-host";
+import {
+  LAYOUT_INPUT_TYPE,
+  MIGRATION_HINT,
+  TemplateLayout,
+  InputFieldsetProps,
+  InputTextBoxProps,
+  InputAssetProps,
+} from "embed-host";
 
-export function getLayout(payload: any): any {
+export function getLayout(payload: any): TemplateLayout {
   return {
     state: {},
     schema: {
@@ -9,44 +16,44 @@ export function getLayout(payload: any): any {
         hint: MIGRATION_HINT.Header,
         label: "Title",
         placeholder: "Title",
-      },
+      } as InputTextBoxProps,
       subtitle: {
         type: LAYOUT_INPUT_TYPE.Textbox,
         hint: MIGRATION_HINT.SubHeader,
         label: "Subtitle",
         placeholder: "Subtitle",
-      },
+      } as InputTextBoxProps,
       time: {
         type: LAYOUT_INPUT_TYPE.Textbox,
         hint: MIGRATION_HINT.Time,
         label: "Time",
         placeholder: "How long will it take?",
-      },
+      } as InputTextBoxProps,
 
       start_label: {
         type: LAYOUT_INPUT_TYPE.Textbox,
         label: "Start Label",
         placeholder: "Start",
-      },
+      } as InputTextBoxProps,
 
       hero_image: {
-        type: "FIELDSET",
+        type: LAYOUT_INPUT_TYPE.Fieldset,
         label: "Hero Image",
         fields: {
           alt: {
             type: LAYOUT_INPUT_TYPE.Textbox,
             label: "Alt Text",
             placeholder: "Image alt text",
-          },
+          } as InputTextBoxProps,
           url: {
             type: LAYOUT_INPUT_TYPE.Asset,
             assetType: "image",
             label: "Image",
-          },
+          } as InputAssetProps,
         },
-      },
+      } as InputFieldsetProps,
     },
-  };
+  } as TemplateLayout;
 }
 
 export function validate(payload: any) {

@@ -1,6 +1,12 @@
-import { LAYOUT_INPUT_TYPE } from "embed-host";
+import {
+  LAYOUT_INPUT_TYPE,
+  TemplateLayout,
+  InputFieldsetProps,
+  InputTextBoxProps,
+  InputSelectProps,
+} from "embed-host";
 
-export function getLayout(payload: any): any {
+export function getLayout(payload: any): TemplateLayout {
   return {
     state: {},
     schema: {
@@ -8,7 +14,7 @@ export function getLayout(payload: any): any {
         type: LAYOUT_INPUT_TYPE.Textbox,
         label: "Title",
         placeholder: "Title...",
-      },
+      } as InputTextBoxProps,
 
       question: {
         type: LAYOUT_INPUT_TYPE.Textbox,
@@ -17,10 +23,10 @@ export function getLayout(payload: any): any {
         multiLine: true,
         lines: 5,
         autoGrow: 5,
-      },
+      } as InputTextBoxProps,
 
       answers: {
-        type: "FIELDSET",
+        type: LAYOUT_INPUT_TYPE.Fieldset,
         label: "Answers",
         fields: {
           a: {
@@ -28,27 +34,27 @@ export function getLayout(payload: any): any {
             label: "Option A",
             placeholder: "Answer A...",
             focusRange: [2000, 2000],
-          },
+          } as InputTextBoxProps,
           b: {
             type: LAYOUT_INPUT_TYPE.Textbox,
             label: "Option B",
             placeholder: "Answer B...",
             focusRange: [2000, 2000],
-          },
+          } as InputTextBoxProps,
           c: {
             type: LAYOUT_INPUT_TYPE.Textbox,
             label: "Option C",
             placeholder: "Answer C...",
             focusRange: [2000, 2000],
-          },
+          } as InputTextBoxProps,
           d: {
             type: LAYOUT_INPUT_TYPE.Textbox,
             label: "Option D",
             placeholder: "Answer D...",
             focusRange: [2000, 2000],
-          },
+          } as InputTextBoxProps,
         },
-      },
+      } as InputFieldsetProps,
 
       correctAnswer: {
         type: LAYOUT_INPUT_TYPE.Select,
@@ -60,21 +66,21 @@ export function getLayout(payload: any): any {
           { name: "Answer C", value: "C" },
           { name: "Answer D", value: "D" },
         ],
-      },
+      } as InputSelectProps,
 
       correctText: {
         type: LAYOUT_INPUT_TYPE.Textbox,
         label: "Correct Message",
         placeholder: "You got it right!",
-      },
+      } as InputTextBoxProps,
 
       incorrectText: {
         type: LAYOUT_INPUT_TYPE.Textbox,
         label: "Incorrect Message",
         placeholder: "Please try again",
-      },
+      } as InputTextBoxProps,
     },
-  };
+  } as TemplateLayout;
 }
 
 export function validate(payload: any) {

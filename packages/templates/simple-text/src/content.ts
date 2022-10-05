@@ -1,6 +1,7 @@
 import {
   LAYOUT_INPUT_TYPE,
   TemplateLayout,
+  InputFieldsetProps,
   InputTextBoxProps,
   InputSelectProps,
   InputAssetProps,
@@ -44,7 +45,7 @@ export function getLayout(payload: any): TemplateLayout {
       } as InputSelectProps,
 
       bgImage: {
-        type: "FIELDSET",
+        type: LAYOUT_INPUT_TYPE.Fieldset,
         label: "Background Image",
         fields: {
           alt: {
@@ -58,9 +59,9 @@ export function getLayout(payload: any): TemplateLayout {
             label: "Image",
           } as InputAssetProps,
         },
-      },
+      } as InputFieldsetProps,
     },
-  };
+  } as TemplateLayout;
 }
 
 export function validate(payload: any) {

@@ -3,10 +3,13 @@ export type { InputProps as InputCheckboxProps } from "./Checkbox";
 export type { InputProps as InputNumberSpinnerProps } from "./NumberSpinner";
 export type { InputProps as InputSelectProps } from "./Select";
 export type { InputProps as InputTextBoxProps } from "./Textbox";
+export type { InputFieldsetProps } from "../Fieldset";
 
 export interface BaseInputProps {
-  type: LAYOUT_INPUT_TYPE;
   label: string;
+  hint?: MIGRATION_HINT; // This is for migrations
+
+  default?: any;
 
   disabled?: boolean;
   value?: any;
@@ -32,9 +35,23 @@ export const DefaultInputProps = {
 };
 
 export enum LAYOUT_INPUT_TYPE {
+  Fieldset = "FIELDSET",
   Asset = "ASSET",
   Checkbox = "CHECKBOX",
   NumberSpinner = "NUMBER_SPINNER",
   Select = "SELECT",
   Textbox = "TEXTBOX",
+}
+
+export enum MIGRATION_HINT {
+  Header = "HEADER",
+  SubHeader = "SUB_HEADER",
+  BodyText = "BODY_TEXT",
+  BodyAlignment = "BODY_ALIGNMENT",
+  BulletPointList = "BULLET_POINT_LIST",
+  BulletPointCount = "BULLET_POINT_COUNT",
+  BulletPoint = "BULLET_POINT",
+  Address = "ADDRESS",
+  Hero = "HERO",
+  Time = "TIME",
 }
