@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import { useAppSelector, useAppDispatch, actions } from "../../store";
 
@@ -6,7 +6,7 @@ import Outline from "./Outline";
 import Glossary from "./Glossary";
 import Resources from "./Resources";
 
-import BarsRegularIcon from "../../icons/bars-regular.svg";
+import BarsRegularIcon from "./bars-regular.svg";
 
 function SideBar(props: any) {
   const dispatch = useAppDispatch();

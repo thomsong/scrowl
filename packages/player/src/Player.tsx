@@ -98,8 +98,6 @@ function Player() {
       return newVal;
     }, -1);
 
-    // console.log("nextModuleLessonId", nextModuleLessonId);
-
     if (nextModuleLessonId === -1) {
       // Last lesson in module
 
@@ -133,7 +131,6 @@ function Player() {
 
   const nextLessionId = getNextLessionId();
 
-  // console.log("nextLessionId", nextLessionId);
   return (
     <div className="player">
       <SideBar />
@@ -143,14 +140,13 @@ function Player() {
           id={currentLessonId}
           lastSlideInCourse={nextLessionId === -1 ? true : false}
           nextSlide={() => {
-            // console.log("newLessonId", nextLessionId);
             if (nextLessionId) {
               dispatch(actions.selectLesson(nextLessionId));
             }
           }}
           nextLessionId={nextLessionId}
           finishCourse={() => {
-            // console.log("finishCourse");
+            // Close the window on close
             window.close();
           }}
         />

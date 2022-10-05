@@ -1,8 +1,6 @@
-import React, { useRef, useEffect } from "react";
+import { useEffect } from "react";
 
 const _window: any = window as any;
-
-let sectionIndex = 100000;
 
 function ScrowlTemplate(props: any) {
   const slideDuration = props.duration || 0;
@@ -20,8 +18,6 @@ function ScrowlTemplate(props: any) {
         return;
       }
       slideVisible = visible;
-
-      // console.log("setSlideVisible", slideVisible);
     };
 
     let sceneTrigger;
@@ -69,11 +65,8 @@ function ScrowlTemplate(props: any) {
         const progressEvent = { progress: e.progress, stage: stageName, stageProgress };
 
         props.onScroll && props.onScroll(progressEvent);
-        //   console.log("Progress", { progress: e.progress, stage: stageName, stageProgress });
       })
       .on("enter leave ", function (e) {
-        // console.log("slideVisible ", e.type, controller.info("scrollDirection"));
-
         if (e.type === "enter") {
           setSlideVisible(true);
           props.onStateChange &&
@@ -90,7 +83,6 @@ function ScrowlTemplate(props: any) {
             });
         }
       })
-      // .addIndicators({ name: "scene: BOTTOM " + templateSectionId.current })
       .addTo(controller);
 
     return () => controller.removeScene(sceneTrigger);

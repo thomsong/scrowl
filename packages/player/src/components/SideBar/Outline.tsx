@@ -19,20 +19,15 @@ function Outline(props: any) {
 
   const selectedLessonId = useAppSelector((state) => state.selectedLessonId);
 
-  const unlockedProgressModuleId = 5;
-  const unlockedProgressLessonId = 3;
-
   let outlineData: any = {
     name: courseState.course.name,
     subtitle: (courseState.publish && courseState.publish.description) || "",
-    // time: "60 minutes",
     modules: [],
   };
 
   courseState.modules.map((module) => {
     const moduleData = { ...module };
     moduleData.lessons = [];
-    // moduleData.time = null;
     courseState.lessons.map((lesson) => {
       if (lesson.moduleId === module.id) {
         moduleData.lessons.push(lesson);

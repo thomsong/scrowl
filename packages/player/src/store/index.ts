@@ -3,7 +3,6 @@ import type { TypedUseSelectorHook } from "react-redux";
 
 import { configureStore } from "@reduxjs/toolkit";
 import PlayerSlice, { actions as PlayerSliceActions } from "./PlayerSlice";
-// import subscribers from "./slices/subscribers";
 
 const store = configureStore({
   reducer: PlayerSlice,
