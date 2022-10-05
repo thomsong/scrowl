@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-// import { useAppDispatch } from "../../hooks";
-
 // Define a type for the slice state
 interface state {
   selectedTab: string;
@@ -53,17 +51,14 @@ const slice = createSlice({
     toggleOutlineItemExpanded: (state, action: PayloadAction<any>) => {
       const payloadId: number = action.payload.id;
 
-      // console.log("toggleOutlineItemExpanded", action.payload);
       if (action.payload.type === "module") {
         if (state.expandedOutlineModules.indexOf(payloadId) !== -1) {
           // Remove
-          // console.log("remove");
           state.expandedOutlineModules = state.expandedOutlineModules.filter(
             (id) => id !== payloadId
           );
         } else {
           // Add
-          // console.log("add");
           state.expandedOutlineModules.push(payloadId);
         }
       } else {
@@ -71,22 +66,17 @@ const slice = createSlice({
 
         if (state.expandedOutlineLessons.indexOf(payloadId) !== -1) {
           // Remove
-          // console.log("remove");
           state.expandedOutlineLessons = state.expandedOutlineLessons.filter(
             (id) => id !== payloadId
           );
         } else {
           // Add
-          // console.log("add");
           state.expandedOutlineLessons.push(payloadId);
         }
       }
     },
 
     focusOnSlide: (state, action: PayloadAction<any>) => {
-      // console.log("leftPanel::focusOnSlide - payload ", action.payload);
-      // return;
-
       const slide: any = action.payload;
       if (!slide) {
         return;
@@ -104,24 +94,9 @@ const slice = createSlice({
       }
     },
 
-    // Outline
-    // addNewModule: (state) => {
-    //   console.log("Add New Module");
-    // },
-
-    // addNewLesson: (state, action: PayloadAction<any>) => {
-    //   console.log("Add Lesson to Module", action.payload);
-    // },
-
-    // addNewSlide: (stat, action: PayloadAction<any>) => {
-    //   console.log("Add Slide to Lesson", action.payload);
-    // },
-
     ////////////////////
     // Dropdown Menus
     handleSlideAction: (state, action: PayloadAction<any>) => {
-      console.log("leftPanel::Handle Slide Action", action.payload);
-
       switch (action.payload.action) {
         case "rename":
           state.editSlideNameId = action.payload.id;
@@ -139,8 +114,6 @@ const slice = createSlice({
     },
 
     handleLessonAction: (state, action: PayloadAction<any>) => {
-      console.log("leftPanel::Handle Lesson Action", action.payload);
-
       switch (action.payload.action) {
         case "rename":
           state.editLessonNameId = action.payload.id;
@@ -152,8 +125,6 @@ const slice = createSlice({
     },
 
     handleModuleAction: (state, action: PayloadAction<any>) => {
-      console.log("leftPanel::Handle Module Action", action.payload);
-
       switch (action.payload.action) {
         case "rename":
           state.editModuleNameId = action.payload.id;
@@ -162,22 +133,6 @@ const slice = createSlice({
         default:
           break;
       }
-    },
-
-    ////////////////////
-
-    // Glossary
-    addNewGlossaryTerm: (state) => {
-      console.log("addNewGlossaryTerm");
-    },
-
-    editGlossaryTerm: (state, action: PayloadAction<any>) => {
-      console.log("editGlossaryTerm", action.payload);
-    },
-
-    // Resources
-    addNewResource: (state) => {
-      console.log("addNewResource");
     },
   },
 });

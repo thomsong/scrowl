@@ -17,7 +17,6 @@ const currentAppMenuOptions = {
 
 function updateAppToolbar(state): void {
   let menuChanged = false;
-  // console.log("updateAppToolbar", state);
 
   const courseIsOpened = state.course.course.id ? true : false;
   if (currentAppMenuOptions.courseIsOpened !== courseIsOpened) {
@@ -25,10 +24,8 @@ function updateAppToolbar(state): void {
     menuChanged = true;
 
     if (courseIsOpened) {
-      // console.log("SET COURSE");
       (window as any).ScrowlApp.course.setActiveCourse(state.course.course.id);
     } else {
-      // console.log("CLEAR COURSE");
       ClientProxy.closeConnection();
       (window as any).ScrowlApp.course.clearActiveCourse();
     }
@@ -53,7 +50,6 @@ function updateAppToolbar(state): void {
 
 let previousSelectedSlideId: any;
 function handleChange() {
-  // console.log('handleChange', handleChange)
   let currentState = store.getState();
   if (
     currentState.course.selectedSlide &&

@@ -30,15 +30,7 @@ const selectSlide = createAsyncThunk(
   async (payload: any, thunkApi: any) => {
     const state = thunkApi.getState();
 
-    // console.log("setSlideContent.setSlideContent.setSlideContent", payload, state);
-
-    // console.log("templateLoaded", state.course.templateLoaded);
-
     if (state.course.templateLoaded) {
-      // const validationResults: any = await ClientProxy.sendMessage("template.onValidate", {
-      //   slide: state.course.selectedSlide,
-      // });
-
       const validationResults = {};
       const layoutResult = await ClientProxy.sendMessage(
         "template.getContentLayout",
@@ -73,7 +65,6 @@ const validateSlideContent = createAsyncThunk(
   "course/validateSlideContent",
   async (payload: any, thunkApi: any) => {
     const state = thunkApi.getState();
-    // console.log("setSlideContent.setSlideContent.setSlideContent", payload, state);
 
     const validationResults: any = await ClientProxy.sendMessage("template.onValidate", {
       slide: state.course.selectedSlide,
@@ -171,8 +162,6 @@ const saveCourse = createAsyncThunk(
       return false;
     }
 
-    console.log("loadCourse.saveCourse", state.course);
-
     const saveResult = await (window as any).ScrowlApp.course.saveCourse(state.course);
 
     if (showNotification) {
@@ -232,13 +221,11 @@ const addNewAssets = createAsyncThunk(
     const state = thunkApi.getState();
 
     const courseId = String(state.course.course.id);
-    // console.log("course/addNewAssets:: ", courseId, secureFileList);
     const assetResults = await (window as any).ScrowlApp.course.addNewAssets(
       courseId,
       secureFileList
     );
 
-    // console.log("assetResults", assetResults);
     return assetResults;
   }
 );
@@ -247,14 +234,13 @@ const publishCourse = createAsyncThunk(
   "course/publishCourse",
   async (payload: any, thunkApi: any) => {
     const state = thunkApi.getState();
-    console.log("course/publishCourse", payload);
+
     if (!payload.courseId) {
       payload = {
         courseId: state.course.course.id,
         version: state.course.course.version,
       };
     }
-    console.log("publishCourse", payload);
 
     return await (window as any).ScrowlApp.course.publishCourse(payload);
   }
@@ -403,18 +389,10 @@ const initialState: state = {
   resources: [],
 };
 
-// initialState.selectedSlideIndex = 1;
-// initialState.selectedSlide = initialState.slides[initialState.selectedSlideIndex];
-// initialState.selectedSlideId = initialState.selectedSlide.id;
-
 const slice = createSlice({
   name: "course",
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(addNewAssets.fulfilled, (state, action) => {
-      console.log("addNewAssets.fulfilled", action);
-    });
-
     builder.addCase(saveCourse.fulfilled, (state, action) => {
       state.course = { ...state.course, ...action.payload };
       state.courseChanges = false;
@@ -452,9 +430,8 @@ const slice = createSlice({
           });
         });
 
-        // get first module
+        // Get first module
         if (firstSlideId) {
-          //console.log("firstModuleId", firstSlideId);
           state.selectedSlideId = firstSlideId;
           state.selectedSlideIndex = getSlideIndexById(state, state.selectedSlideId);
           state.selectedSlide = state.slides[state.selectedSlideIndex];
@@ -480,7 +457,6 @@ const slice = createSlice({
 
       state.selectedSlide = state.slides[state.selectedSlideIndex];
 
-      // TODO: replace with lodash clone???
       state.validSlideContentValues = { ...state.selectedSlide.content };
     });
 
@@ -496,7 +472,7 @@ const slice = createSlice({
       if (!action.payload) {
         return;
       }
-      // console.log("setTemplateLoaded.fulfilled", action.payload);
+
       state.contentLayout = action.payload;
       state.templateLoaded = true;
     });
@@ -569,7 +545,6 @@ const slice = createSlice({
     },
 
     setSlideContent: (state, action: PayloadAction<any>) => {
-      // console.log("action.payload", action.payload);
       state.slides[state.selectedSlideIndex].content[action.payload.fieldKey] =
         action.payload.value;
 
@@ -661,8 +636,6 @@ const slice = createSlice({
     },
 
     handleSlideAction: (state, action: PayloadAction<any>) => {
-      console.log("course::Handle Slide Action", action.payload);
-
       const actionSlide = action.payload.id
         ? state.slides.find((obj: { id: any }) => {
             return obj.id === action.payload.id;
@@ -712,8 +685,6 @@ const slice = createSlice({
     },
 
     handleLessonAction: (state, action: PayloadAction<any>) => {
-      console.log("course::Handle Lesson Action", action.payload);
-
       const lesson: any = action.payload.id
         ? state.lessons.find((obj: { id: any }) => {
             return obj.id === action.payload.id;
@@ -730,11 +701,8 @@ const slice = createSlice({
         return obj.id === lesson.moduleId;
       });
 
-      console.log("lesson", lesson);
       switch (action.payload.action) {
         case "add_new_slide":
-          console.log("add_new_slide", action.payload);
-
           const newSlideId = getNextSlideId(state) + 1;
           state.slides.push({
             id: newSlideId,
@@ -771,8 +739,6 @@ const slice = createSlice({
     },
 
     handleModuleAction: (state, action: PayloadAction<any>) => {
-      console.log("course::Handle Module Action", action.payload);
-
       let module: any = action.payload.id
         ? state.modules.find((obj: { id: any }) => {
             return obj.id === action.payload.id;
@@ -793,7 +759,6 @@ const slice = createSlice({
           break;
 
         case "add_new_module":
-          console.log("ZZZZZZZZZZZZZZZZ");
           addNewModule(state, -1);
           break;
 
@@ -809,7 +774,6 @@ const slice = createSlice({
     },
 
     handleCopyAssetComplete: (state, action: PayloadAction<any>) => {
-      console.log("handleCopyAssetComplete", action.payload);
       const addedAssets: any = action.payload;
 
       let newAssetState = state.assets.filter(
