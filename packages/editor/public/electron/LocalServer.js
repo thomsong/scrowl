@@ -22,22 +22,18 @@ class LocalServer {
     var staticFile = new nodeStatic.Server(staticPath, {
       cache: false,
     });
-    console.log("staticPath", staticPath);
 
     console.log("Starting local server...");
     this.serverInstance = require("http")
       .createServer(async (request, response) => {
-        // if (request.headers["user-agent"] !== "scrowl") {
-        //   response.writeHead(400);
-        //   response.end();
-        //   return;
-        // }
+        if (request.headers["user-agent"] !== "scrowl") {
+          response.writeHead(400);
+          response.end();
+          return;
+        }
 
         // Route /course/ urls to the course folder in the user directory
-        if (
-          request.url.startsWith("/course/")
-          // !request.url.startsWith("/course/preview/player/assets/")
-        ) {
+        if (request.url.startsWith("/course/")) {
           request
             .addListener("end", () => {
               response.setHeader("Cache-Control", "no-cache");
@@ -53,15 +49,10 @@ class LocalServer {
               let requestedURL = request.url.substring(7);
               request.path = request.url = requestedURL;
 
-              // console.log("request.url", request.url);
-
               // Helps with previewing a course - allows us to not copy the assets when previewing
               if (request.url.startsWith("/preview/player/course/assets/")) {
                 requestedURL = request.url.substring(22);
-                //if (request.url.startsWith("/preview/player/assets/")) {
-                //  requestedURL = request.url.substring(16);
                 request.path = request.url = requestedURL;
-                console.log("requestedURL", requestedURL);
               }
 
               this.courseFileResponder.serve(request, response);
@@ -71,18 +62,10 @@ class LocalServer {
           return;
         }
 
-        // // Direct assets to the editor assets
-        // if (request.url.startsWith("/course/preview/player/assets/")) {
-        //   let requestedURL = request.url.substring(23);
-        //   // request.path = request.url = requestedURL;
-        //   console.log("xxxx requestedURL", requestedURL);
-        // }
-
         if (isDev) {
           // Proxy it to local dev server
           request.pipe(RequestMod("http://localhost:3000" + request.url)).pipe(response);
         } else {
-          // TODO: Check if there are any potential vulnerabilities
           response.setHeader("Access-Control-Allow-Origin", "null");
 
           request

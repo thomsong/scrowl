@@ -36,13 +36,9 @@ function AssetListEntry(props: any) {
 
   const searchTerm = props.searchHighlight || "";
 
-  // console.log("props.parentFolderId", props.data.parentFolderId);
   return (
     <tr
       className={"asset-list-entry " + (props.data.parentFolderId === -1 ? "root-entry" : "")}
-      // onContextMenu={async (e) => {
-      //   console.log("right asset", await showContextMenu());
-      // }}
       style={props.data.filterMatch ? {} : { pointerEvents: "none", opacity: "0.5" }}
     >
       <td className="truncate">
@@ -86,34 +82,13 @@ function AssetListEntry(props: any) {
           <button
             className="btn  btn-outline-primary btn-sm action"
             type="button"
-            // data-bs-toggle="dropdown"
             onClick={async (e) => {
               e.preventDefault();
-              console.log("right", await showContextMenu());
+              await showContextMenu();
             }}
           >
             <span className="material-symbols-sharp">arrow_drop_down</span>
           </button>
-          {/* <ul className="dropdown-menu">
-            <li>
-              <button className="dropdown-item" onClick={() => {}}>
-                <span className="material-symbols-sharp owl-dropdown-icon">border_color</span>
-                Rename
-              </button>
-            </li>
-            <li>
-              <button className="dropdown-item" onClick={() => {}}>
-                <span className="material-symbols-sharp owl-dropdown-icon">swap_horiz</span>
-                Update
-              </button>
-            </li>
-            <li>
-              <button className="dropdown-item" onClick={() => {}}>
-                <span className="material-symbols-sharp owl-dropdown-icon">delete</span>
-                Delete
-              </button>
-            </li>
-          </ul> */}
         </div>
       </td>
     </tr>

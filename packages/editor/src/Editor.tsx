@@ -20,8 +20,6 @@ function Editor() {
 
   useEffect(() => {
     const onBeforeUnload = (e: any) => {
-      console.log("onBeforeUnload");
-
       e.returnValue = false;
 
       dispatch(uiActions.handleGlobalAction({ id: "CLOSE_WINDOW" }));

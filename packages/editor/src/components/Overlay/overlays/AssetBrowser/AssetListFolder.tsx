@@ -23,7 +23,7 @@ function AssetListFolder(props: any) {
       <tr
         className={"asset-list-folder" + (props.expanded ? " expanded " : "")}
         onContextMenu={async (e) => {
-          console.log("right folder", await showContextMenu());
+          await showContextMenu();
         }}
       >
         <td colSpan={3} className="truncate">
@@ -60,7 +60,7 @@ function AssetListFolder(props: any) {
               type="button"
               onClick={async (e) => {
                 e.preventDefault();
-                console.log("right", await showContextMenu());
+                await showContextMenu();
               }}
             >
               <span className="material-symbols-sharp">arrow_drop_down</span>
@@ -100,7 +100,7 @@ function AssetListFolder(props: any) {
               className="btn  btn-link "
               onClick={(e) => {
                 e.preventDefault();
-                console.log("Add File");
+                // Add File
               }}
             >
               + Add New File

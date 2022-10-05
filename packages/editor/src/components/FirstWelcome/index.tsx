@@ -14,8 +14,6 @@ function FirstWelcome(props: any) {
 
   const [hasClicked, setHasClicked] = useState(false);
 
-  // console.log("hasClicked", hasClicked);
-
   const createFirstCourse = async () => {
     if (hasClicked) {
       return;

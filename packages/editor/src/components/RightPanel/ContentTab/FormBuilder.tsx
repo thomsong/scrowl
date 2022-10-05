@@ -43,7 +43,6 @@ function FormBuilder(_props: PropsType) {
 
   schema &&
     Object.keys(schema).forEach((name) => {
-      // console.log("Name", name);
       const schemaProps = schema[name];
 
       let fieldsetFields: any = null;
@@ -81,51 +80,3 @@ function FormBuilder(_props: PropsType) {
 }
 
 export default FormBuilder;
-
-// {
-//   "company_info": {
-//     "type": "FIELDSET",
-//     "label": "Company Information",
-//     "fields": {
-//       "name": {
-//         "type": "TEXTBOX",
-//         "label": "Company Name",
-//         "placeholder": "Company name"
-//       },
-//       "address": {
-//         "type": "TEXTBOX",
-//         "label": "Address",
-//         "placeholder": "Full address",
-//         "multiLine": true,
-//         "lines": 4,
-//         "autoGrow": 7
-//       }
-//     }
-//   },
-//   "title": {
-//     "type": "TEXTBOX",
-//     "label": "Title",
-//     "placeholder": "Slide Title"
-//   },
-//   "bullet_points": {
-//     "type": "FIELDSET",
-//     "label": "Bullet Points",
-//     "fields": {
-//       "point_1": {
-//         "type": "TEXTBOX",
-//         "label": "Point 1",
-//         "placeholder": "Bullet point 1"
-//       },
-//       "point_2": {
-//         "type": "TEXTBOX",
-//         "label": "Point 2",
-//         "placeholder": "Bullet point 2"
-//       },
-//       "point_3": {
-//         "type": "TEXTBOX",
-//         "label": "Point 3",
-//         "placeholder": "Bullet point 3"
-//       }
-//     }
-//   }
-// }

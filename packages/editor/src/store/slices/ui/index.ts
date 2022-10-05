@@ -128,24 +128,15 @@ const initUI = createAsyncThunk(
 );
 
 const launchPreview = createAsyncThunk(
-  //action type string
+  // Action type string
   "ui/launchPreview",
   async (mode: any, thunkApi: any) => {
-    // return await (window as any).ScrowlApp.dialog.show(payload);
-
-    // if (mode !== PREVIEW_MODE.default) {
-    //   state.previewMode = action.payload;
-    // }
-
     await store.dispatch(courseActions.saveCourse(false));
 
     const state = thunkApi.getState();
-    // await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const previewMode = state.ui.previewMode;
     const payload: any = { previewMode };
-    // console.log("previewMode", state.ui.previewMode);
-    // console.log("Course", state.course);
 
     payload.course = state.course.course;
     payload.publish = state.course.publish;
@@ -158,7 +149,7 @@ const launchPreview = createAsyncThunk(
 
     await (window as any).ScrowlApp.showPreview(payload);
 
-    console.log("PREVIEW DONE");
+    // Preview done & closed
   }
 );
 
@@ -176,8 +167,6 @@ const handleGlobalAction = createAsyncThunk(
   async (payload: any, thunkApi: any) => {
     const state = thunkApi.getState();
 
-    // console.log("handleGlobalAction.thunk", payload);
-
     const actionId = payload.id || false;
     if (!actionId) {
       return;
@@ -187,7 +176,6 @@ const handleGlobalAction = createAsyncThunk(
 
     switch (actionId.toUpperCase()) {
       case "COPY_ASSET_PROGRESS":
-        // console.log("COPY_ASSET_PROGRESS", payload.args);
         store.dispatch(slice.actions.updateCopyAssetProgress(payload.args));
 
         break;
@@ -195,7 +183,6 @@ const handleGlobalAction = createAsyncThunk(
         store.dispatch(courseActions.handleCopyAssetComplete(payload.args));
         store.dispatch(slice.actions.updateCopyAssetProgress(false));
 
-        // console.log("payload.args", payload.args);
         new Notification("Add New File", {
           body:
             (Object.keys(payload.args).length === 1 ? "File was " : "Files were ") +
@@ -234,26 +221,23 @@ const handleGlobalAction = createAsyncThunk(
           !state.course.courseChanges &&
           state.course.course.version === 1
         ) {
-          // console.log("New unchanged course");
           return;
         }
 
         if (state.course.course.id) {
           const result: any = await store.dispatch(courseActions.closeCourse());
-          console.log("!!!! result.payload", result.payload);
 
           if (result.payload === false) {
-            // console.log("CANCEL");
+            // Cancel
             return;
           } else {
-            // console.log("COURSE CLOSED SUCCESSFULLY");
+            // Course closed successfully
           }
         }
 
         const result = await (window as any).ScrowlApp.course.newCourse("new-default");
-        const loadCourseResult: any = await store.dispatch(courseActions.loadCourse(result.id));
+        await store.dispatch(courseActions.loadCourse(result.id));
         store.dispatch(slice.actions.setUIMode(UI_MODE.Designer));
-        console.log("loadCourseResult", loadCourseResult);
         break;
 
       case "PUBLISH_SETTINGS":
@@ -359,7 +343,6 @@ const showOverlay = createAsyncThunk("ui/showOverlay", async (payload: any, thun
     overlayCallbacks[callbackId] = payload.callback;
   }
 
-  //action.payload.callback
   const newOverlay = {
     mode: payload.type,
     data: payload.data,
@@ -374,8 +357,6 @@ const slice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder.addCase(launchPreview.pending, (state, action: any) => {
-      console.log("launchPreview", action.meta.arg);
-
       if (action.meta.arg !== PREVIEW_MODE.default && action.meta.arg !== state.previewMode) {
         state.previewMode = action.meta.arg;
       }
@@ -386,8 +367,6 @@ const slice = createSlice({
     });
 
     builder.addCase(showDialog.pending, (state, action: any) => {
-      console.log("showDialog.pending", action);
-
       const newOverlay = {
         mode: "dialog",
       };
@@ -395,15 +374,12 @@ const slice = createSlice({
       state.overlays.push(newOverlay);
     });
     builder.addCase(showDialog.fulfilled, (state, action) => {
-      console.log("showDialog.fulfilled", action);
       state.overlays.pop();
     });
   },
 
   reducers: {
     updateCopyAssetProgress: (state, action: PayloadAction<boolean>) => {
-      // console.log("updateCopyAssetProgress", action);
-
       if (!action.payload) {
         state.copyAssetProgress = false;
       } else {

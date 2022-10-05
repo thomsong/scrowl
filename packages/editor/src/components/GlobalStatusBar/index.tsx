@@ -101,7 +101,6 @@ function GlobalStatusBar() {
           id={"status_bar:" + RATIO_SIZE.Wide_16_9}
           checked={workspaceRatioSize === RATIO_SIZE.Wide_16_9 ? true : false}
           onChange={(e) => {
-            // console.log("e.target.checked 1", e.target.checked);
             dispatch(uiActions.setWorkspaceRatioSize(RATIO_SIZE.Wide_16_9));
           }}
         />
@@ -119,7 +118,6 @@ function GlobalStatusBar() {
           id={"status_bar:" + RATIO_SIZE.Fit}
           checked={workspaceRatioSize === RATIO_SIZE.Fit ? true : false}
           onChange={(e) => {
-            // console.log("e.target.checked 2", e.target.checked);
             dispatch(uiActions.setWorkspaceRatioSize(RATIO_SIZE.Fit));
           }}
         />

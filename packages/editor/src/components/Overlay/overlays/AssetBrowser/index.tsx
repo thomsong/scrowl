@@ -43,8 +43,6 @@ function AssetBrowser(props: any) {
     }
 
     const handleKeyDown = (e) => {
-      console.log("handleKeyDown");
-
       e.preventDefault();
       e.stopPropagation();
     };
@@ -56,8 +54,6 @@ function AssetBrowser(props: any) {
     };
   }, [copyAssetProgress]);
 
-  // const folderWordList: any = useRef(randomWords({ exactly: 10, wordsPerString: 3 }));
-  // const wordList: any = useRef(randomWords({ exactly: 250, wordsPerString: 3 }));
   const [searchTerm, setSearchTerm] = useState();
   const searchTermLower = searchTerm ? (searchTerm as any).toLowerCase() : "";
 
@@ -223,17 +219,10 @@ function AssetBrowser(props: any) {
       buttons={{
         cancel: "Close",
         submit: "Add New File",
-
-        // altSubmit: (
-        //   <>
-        //     <span className={"material-symbols-rounded scrowl-outline__detail-icon "}>add</span>
-        //     New Folder
-        //   </>
-        // ),
       }}
       onSubmit={() => addNewFiles()}
       onAltSubmit={() => {
-        console.log("Add New Folder");
+        // Add New Folder
       }}
       className="asset-browser "
     >
@@ -266,11 +255,9 @@ function AssetBrowser(props: any) {
           onChange={(value) => {
             const searchTerm = value.trim();
             setSearchTerm(searchTerm);
-            // console.log("value", value);
           }}
         />
         <div className="mt-2 asset-list">
-          {/* {assetListComponents} */}
           <table className="table">
             <thead>
               <tr>
@@ -280,7 +267,6 @@ function AssetBrowser(props: any) {
                   style={{
                     width: "65px",
                     maxWidth: "65px",
-                    // transform: "translate(-9px, 0px)",
                   }}
                 >
                   Type
@@ -290,12 +276,10 @@ function AssetBrowser(props: any) {
                   style={{
                     width: "80px",
                     maxWidth: "80px",
-                    // transform: "translate(-8px, 0px)",
                   }}
                 >
                   Size
                 </th>
-                {/* <th scope="col" style={{ width: "25px", maxWidth: "25px" }} /> */}
               </tr>
             </thead>
             <tbody>{rootComponents}</tbody>

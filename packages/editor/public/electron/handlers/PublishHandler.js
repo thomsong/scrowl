@@ -82,8 +82,6 @@ class PublishHandler {
   }
 
   async processPublishCourse() {
-    console.log("");
-    console.log("");
     console.log("--------------------------------");
     console.log("         PUBLISH COURSE         ");
     console.log("--------------------------------");
@@ -96,46 +94,28 @@ class PublishHandler {
     console.log("lessonId:", this.lessonId);
     console.log("moduleId:", this.moduleId);
 
-    // console.log("settings:", this.settings);
-    console.log("");
-
     return new Promise(async (resolve) => {
       this.getDestPath();
 
       if (!this.destScormPath) {
-        console.log("Canceled");
+        // Canceled
         resolve(false);
         return;
       }
 
-      console.log("Publish Step 1");
       this.createTmpFolder();
-
-      console.log("Publish Step 2");
       this.addPlayer();
-
-      console.log("Publish Step 3");
       await this.loadCourseData();
-
-      console.log("Publish Step 4");
       this.addCourseData();
-
-      console.log("Publish Step 5");
       this.addThemes();
-
-      console.log("Publish Step 6");
       this.addTemplates();
 
       if (!this.previewMode) {
-        console.log("Publish Step 7");
         this.addCourseAssets();
 
-        console.log("Publish Step 8");
         const scormResult = await this.packageScorm();
-
         this.outputPath = scormResult.filename;
 
-        console.log("Publish Step 10");
         this.cleanup();
       } else {
         this.outputPath = "";
@@ -192,7 +172,7 @@ class PublishHandler {
 
     const courseJSON = await fsHelper.getUnzip(courseDataPath);
     if (!courseJSON || courseJSON.error) {
-      return courseJSON; // This will have error info in it
+      return courseJSON; // This will have the error info in it
     }
 
     // TODO: Remove unused/more private data/fields
@@ -244,11 +224,7 @@ class PublishHandler {
 
   async packageScorm() {
     return new Promise((resolve, reject) => {
-      // this.destScormPath
-      // return;
-      console.log("publish settings", this.courseData.publish);
-
-      const result = scopackager(
+      scopackager(
         {
           version: "2004 4th Edition",
           startingPage: "player/index.html",
@@ -269,16 +245,6 @@ class PublishHandler {
             name: this.courseData.course.name,
             author: this.courseData.publish.authors,
             description: this.courseData.publish.description,
-
-            // duration: "PT5H43M49S",
-            // typicalDuration: "PT4H3M21S",
-            // requirements: [
-            //   {
-            //     type: "Requirement type 1",
-            //     name: "Requirement name 1",
-            //     version: "r1MinVer",
-            //   }x
-            // ],
           },
         },
         function (result) {

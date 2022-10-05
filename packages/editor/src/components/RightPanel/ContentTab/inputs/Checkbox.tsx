@@ -21,9 +21,7 @@ const defaultInputProps: InputProps = {
 
   focus: false,
   validationError: "",
-
   options: [],
-
   onChange: () => {},
   onValidate: () => {},
   onFocus: () => {},
@@ -52,15 +50,10 @@ function Checkbox(_props: InputProps) {
     ref: inputRef,
     type: "text",
     className: "form-check-input " + (validationError !== "" ? " is-invalid " : ""),
-
     checked: isChecked,
-
-    // placeholder: props.placeholder,
     disabled: props.disabled,
 
     onChange: (e: any) => {
-      // console.log("x", e);
-
       let newValue = !isChecked;
 
       props.onChange(newValue);
@@ -92,15 +85,3 @@ function Checkbox(_props: InputProps) {
 }
 
 export default Checkbox;
-
-//   return (
-// <div className="mb-2">
-//   <div className="form-check form-control-sm">
-//     <input className="form-check-input" type="checkbox" />
-//     <label className="form-check-label">{props.label}</label>
-//   </div>
-// </div>
-//   );
-// }
-
-// export default Checkbox;

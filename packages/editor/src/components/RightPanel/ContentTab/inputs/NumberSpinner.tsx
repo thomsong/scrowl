@@ -35,7 +35,6 @@ function NumberSpinner(_props: InputProps) {
   const inputRef: any = React.useRef();
   const lastFocusState: any = React.useRef(false);
 
-  // console.log("default", props.default);
   React.useEffect(() => {}, []);
 
   if (inputRef.current && lastFocusState.current !== props.focus) {
@@ -61,11 +60,11 @@ function NumberSpinner(_props: InputProps) {
     value: cleanVal,
 
     onFocus: (e: any) => {
-      console.log("on focus");
+      // Placeholder
     },
 
     onChange: (e: any) => {
-      // Dummy func
+      // Placeholder
     },
   };
 

@@ -3,11 +3,6 @@ import RocketAnimation from "../../../components/animations/Rocket";
 import OverlayModal from "../OverlayModal";
 
 function PublishProgress(props: any) {
-  //   const id = useId();
-
-  //   const dispatch = useAppDispatch();
-
-  console.log("props", props.data.canClose);
   return (
     <OverlayModal
       {...props}

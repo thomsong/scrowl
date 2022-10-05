@@ -55,7 +55,7 @@ class CourseHandler {
 
     const courseFileResponder = new nodeStatic.Server(coursePath, {
       cache: false,
-    }); //, { cache: 15 });
+    });
 
     LocalServer.setCourseFileResponder(courseFileResponder);
   }
@@ -99,7 +99,7 @@ class CourseHandler {
 
       fs.writeFileSync(coursePath + courseDataFile + ".json", JSON.stringify(courseData, null, 2));
       await fsHelper.zip(coursePath + courseDataFile + ".json", coursePath + courseDataFile);
-      // fs.unlink(coursePath + courseDataFile + ".json");
+      fs.unlink(coursePath + courseDataFile + ".json");
 
       return { id: courseId };
     });
@@ -140,16 +140,8 @@ class CourseHandler {
 
       const courseJSON = fs.readFileSync(courseDataPath + ".json") + "";
 
-      // if (!fs.existsSync(courseDataPath)) {
-      // return { error: "COURSE_V" + version + "_MISSING", courseDataPath };
-      // }
-
-      // const courseJSON = await fsHelper.getUnzip(courseDataPath);
-      // if (!courseJSON || courseJSON.error) {
-      // return courseJSON;
-      // }
       JSON.parse(courseJSON);
-      // console.log("courseJSON", courseJSON);
+
       try {
         return JSON.parse(courseJSON);
       } catch (e) {
@@ -247,7 +239,7 @@ class CourseHandler {
 
       fs.writeFileSync(courseDataPath + ".json", JSON.stringify(saveState, null, 2));
       await fsHelper.zip(courseDataPath + ".json", courseDataPath);
-      // fs.unlink(courseDataPath + ".json");
+      fs.unlink(courseDataPath + ".json");
 
       // Add it to recent.json
       let recentData = null;
@@ -298,8 +290,6 @@ class CourseHandler {
         fs.mkdirSync(courseAssetPath);
       }
 
-      // console.log("secureFileList", secureFileList);
-
       const newAssetList = [];
 
       for (let i = 0; i < secureFileList.length; i++) {
@@ -343,8 +333,6 @@ class CourseHandler {
         const newUpdateProgress = totalProgress * 100 + progress;
 
         if (newUpdateProgress !== lastUpdateProgress) {
-          console.log("sendUpdate", filename, totalProgress, progress);
-
           mainWindow.webContents.send("GLOBAL_ACTION", {
             id: "COPY_ASSET_PROGRESS",
             args: { filename, totalProgress, progress },
@@ -360,8 +348,6 @@ class CourseHandler {
 
     for (let i = 0; i < assetList.length; i++) {
       const [filePath, fileHash, fileSize] = assetList[i];
-
-      // console.log("Copy", filePath, fileHash, fileSize);
 
       let fileExt = (filePath.includes(".") ? filePath.split(".").pop() : "").toLowerCase();
       let fileName = path.parse(filePath).base;

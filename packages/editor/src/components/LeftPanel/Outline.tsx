@@ -58,9 +58,6 @@ function Outline(props: any) {
     firstSelectionFocus.current = false;
   }, []);
 
-  // if (lastSlideFocusTS.current > 0 && firstSelectionFocus.current) {
-  //   firstSelectionFocus.current = false;
-  // }
   // Check to see if just went into edit mode
   // Slide name edit
   if (lastEditSlideNameId.current && editSlideNameId !== lastEditSlideNameId.current) {
@@ -104,9 +101,7 @@ function Outline(props: any) {
     }
   }
 
-  // console.log("lastSlideFocusTS", lastSlideFocusTS.current, slideFocusTS);
   if (selectedSlide && panelContainer.current && slideFocusTS > lastSlideFocusTS.current) {
-    // console.log("slideFocusTS", slideFocusTS);
     lastSlideFocusTS.current = slideFocusTS;
     // Focus on selected slide
 
@@ -213,7 +208,6 @@ function Outline(props: any) {
           e.currentTarget.style.height = 2 + e.currentTarget.scrollHeight + "px";
         }}
         onFocus={(e) => {
-          // console.log("focus");
           e.currentTarget.dataset.initial_value = e.target.value;
           e.currentTarget.style.height = "5px";
           e.currentTarget.style.height = 2 + e.currentTarget.scrollHeight + "px";
@@ -245,19 +239,10 @@ function Outline(props: any) {
               el.classList.remove("drop-indicator");
             });
 
-            //e.stopPropagation();
-            //e.preventDefault();
-
             return;
           }
 
-          // console.log("over");
-          // return;
-
           let el: any = e.target;
-          // while (el && el.tagName !== "UL") {
-          // el = el.parentNode;
-          // }
 
           while (el && el.tagName !== "UL" && !el.classList.contains("scrowl-outline")) {
             el = el.parentNode;
@@ -271,11 +256,7 @@ function Outline(props: any) {
             return;
           }
 
-          // console.log("el", el);
-          // return;
-
           const elRect = el.getBoundingClientRect();
-          // const elContainerSlides = el.querySelectorAll(".scrowl-outline__item--module");
 
           let elContainerModules = el.querySelectorAll(
             ".scrowl-outline__item--module, .scrowl-outline__item--add-module"
@@ -421,7 +402,6 @@ function Outline(props: any) {
                     onDragStart={(e) => {
                       dragElementType = "module";
 
-                      console.log("onDragStart module");
                       const el: any = e.currentTarget.parentElement;
 
                       dragElement = el.parentElement;
@@ -439,8 +419,6 @@ function Outline(props: any) {
                       if (!dragElement) {
                         return;
                       }
-
-                      console.log("onDragStart onDragEnd");
 
                       dragElement.classList.remove("dragging");
 
@@ -640,7 +618,6 @@ function Outline(props: any) {
                                 onDragStart={(e) => {
                                   dragElementType = "lesson";
 
-                                  console.log("onDragStart lesson");
                                   const el: any = e.currentTarget.parentElement;
 
                                   dragElement = el.parentElement;
@@ -658,7 +635,6 @@ function Outline(props: any) {
                                   if (!dragElement) {
                                     return;
                                   }
-                                  console.log("onDragStart onDragEnd");
 
                                   dragElement.classList.remove("dragging");
 

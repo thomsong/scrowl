@@ -94,8 +94,8 @@ function ResourceEditor(props: any) {
                   data: {},
                   callback: (params) => {
                     if (typeof params === "object") {
+                      // Asset Browser Results
                       const { asset, fileName } = params;
-                      console.log("Asset Browser Results", params);
 
                       setResourceTitle(fileName);
                       setResourceURL(asset);

@@ -45,16 +45,14 @@ function ImageAsset(_props: InputProps) {
   const showAssetBrowser = () => {
     props.onFocus();
 
-    // console.log("props", props);
     dispatch(
       uiActions.showOverlay({
-        // type: "Publish",
         type: "AssetBrowser",
         data: { filter: props.assetType || "" },
         callback: (params) => {
           if (typeof params === "object") {
             const { asset } = params;
-            // console.log("Asset Browser Results", asset);
+            // Handle Asset Browser Results
 
             window.requestAnimationFrame(() => {
               props.onChange(asset);
@@ -111,8 +109,6 @@ function ImageAsset(_props: InputProps) {
     <div className={"mb-2 template-content-input " + (props.disabled ? " disabled " : "")}>
       <label className="form-label">{props.label}</label>
       <div className={"input-group input-group-sm " + (validationError !== "" ? "is-invalid" : "")}>
-        {/* {groupElement("pre", props.pre)} */}
-
         {assetName ? (
           <button
             style={{ width: "26px", paddingLeft: "5px" }}

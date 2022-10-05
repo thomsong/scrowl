@@ -88,8 +88,6 @@ function Select(_props: InputProps) {
         {groupElement("pre", props.pre)}
         <select {...inputProps}>
           {props.options.map((option) => {
-            // console.log("option.default", option.default, option.value);
-            // console.log("props.value", props.value);
             return (
               <option key={option.value} value={option.value}>
                 {option.name}

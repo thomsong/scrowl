@@ -182,7 +182,6 @@ function setMenu(props) {
         {
           label: "Show Developer Tools",
           click: () => {
-            console.log("DEV TOOLS");
             const mainWindow = BrowserWindow.getAllWindows()[0];
             mainWindow.webContents.openDevTools();
           },

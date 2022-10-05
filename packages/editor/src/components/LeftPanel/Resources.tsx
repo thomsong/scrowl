@@ -24,7 +24,6 @@ export const showContextMenu = async (dispatch, courseId, resource, target?) => 
       {
         label: "Preview",
         onClick: async () => {
-          console.log("resource.url", resource.url);
           await (window as any).ScrowlApp.showResourcePreview({ courseId, resource });
         },
       },
@@ -76,8 +75,6 @@ function Resources(props: any) {
               href="#"
               className="scrowl-resources__item__link"
               onClick={() => {
-                // console.log(resource.id);
-
                 dispatch(
                   uiActions.showOverlay({
                     type: "Resource",

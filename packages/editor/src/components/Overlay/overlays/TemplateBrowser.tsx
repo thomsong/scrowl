@@ -13,7 +13,6 @@ function ResourceEditor(props: any) {
   const templates: any = useAppSelector((state) => state["course"].templates);
   const selectedSlide: any = useAppSelector((state) => state["course"].selectedSlide);
 
-  //   const data = props.data;
   const bodyRef: any = useRef();
   const selectedBttonRef: any = useRef();
 
@@ -57,7 +56,6 @@ function ResourceEditor(props: any) {
           setSelectedKey(template.key);
         }}
       >
-        {/* <img src="./assets/templates/sample-template/preview.svg" alt="preview of template" /> */}
         <span
           className="material-symbols-sharp color-template"
           style={{
@@ -98,7 +96,6 @@ function ResourceEditor(props: any) {
       size="lg"
       onSubmit={() => {
         if (selectedKey !== selectedSlide.templateName) {
-          // console.log("NEW TEMPLATE", selectedKey);
           dispatch(uiActions.closeOverlay({ templateName: selectedKey, templateVersion: "1.0" }));
           return;
         }

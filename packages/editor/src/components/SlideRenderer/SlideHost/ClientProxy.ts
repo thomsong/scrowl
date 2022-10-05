@@ -20,7 +20,6 @@ class ClientProxy {
   };
 
   public init = () => {
-    console.log("ClientProxy INIT");
     this.listen();
   };
 
@@ -51,13 +50,12 @@ class ClientProxy {
       return;
     }
 
-    console.log("ClientProxy::LISTENING....");
+    // ClientProxy is listening
     (window as any).addEventListener("message", this.postMessageHandler, true);
     this.hasWindowHandler = true;
   };
 
   private postMessageHandler = (msg: any) => {
-    // console.log("postMessageHandler", msg.data);
     if (msg.data === "host_proxy_init") {
       this.channelPort = msg.ports?.[0];
 
@@ -75,7 +73,6 @@ class ClientProxy {
   };
 
   private handleSuccessfulConnection = async () => {
-    // console.log("handleSuccessfulConnection x1", this.connectedToClient);
     this.connectedToClient = true;
     this.channelPort.postMessage("host_connected");
   };
@@ -85,7 +82,6 @@ class ClientProxy {
     const payload: any = data.payload;
     const callbackId: any = data.callbackId;
 
-    // console.log("GOT MSG", data);
     if (!action) {
       console.error("Missing call action");
       return;

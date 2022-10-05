@@ -46,17 +46,8 @@ function RightOverlay(props: any) {
     };
   }, [dispatch, props.topOverlay]);
 
-  // let bs_offcanvas_width = "400px";
-
-  // if (document.querySelector(".offcanvas")) {
-  //   bs_offcanvas_width = getComputedStyle(
-  //     document.querySelector(".offcanvas") as any
-  //   ).getPropertyValue("--bs-offcanvas-width");
-  // }
-
   const reducedAnimations = props.reducedAnimations;
 
-  // console.log("bs_offcanvas_width", bs_offcanvas_width);
   return (
     <motion.div
       style={{ zIndex: props.zIndex, right: 0 }}
@@ -64,7 +55,7 @@ function RightOverlay(props: any) {
         "offcanvas offcanvas-start show right-overlay-panel support-high-contrast " +
         props.className
       }
-      initial={{ right: "-500px" }} //"-" + bs_offcanvas_width }}
+      initial={{ right: "-500px" }}
       animate={{ right: "0px" }}
       exit={{
         transition: { right: { duration: 0.15 } },

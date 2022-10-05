@@ -104,7 +104,7 @@ function ViewCourses(props: any) {
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log("Create new course");
+                  // Create new course
                   createNewCourse("new-default");
                 }}
               >
@@ -121,7 +121,7 @@ function ViewCourses(props: any) {
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log("Create Tutorial Course");
+                  // Create Tutorial Course
                   createNewCourse("welcome");
                 }}
               >

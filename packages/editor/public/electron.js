@@ -79,12 +79,6 @@ async function createWindow() {
   mainWindow.on("moved", () => {
     settings.set("window:bounds", mainWindow.getBounds());
   });
-
-  // mainWindow.on("close", (e) => {
-  // Check what we should do regarding save/discard/cancel
-  // e.preventDefault();
-
-  // });
 }
 
 // This method will be called when Electron has finished
@@ -98,10 +92,6 @@ app.whenReady().then(() => {
   app.name = "Scrowl";
 
   AppMenu();
-
-  // const appMenu = Menu.getApplicationMenu();
-  // console.log("appMenu", appMenu);
-
   createWindow();
 });
 

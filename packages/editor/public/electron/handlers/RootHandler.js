@@ -71,7 +71,6 @@ class RootHandler {
       }
 
       const parentWindow = BrowserWindow.getAllWindows()[0];
-      console.log("payload", payload);
 
       const { courseId, resource } = payload;
 
