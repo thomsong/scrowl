@@ -67,7 +67,7 @@
     "copyright": "Occupational Safety Group Inc.",
     "productName": "Scrowl",
     "mac": {
-      "target": "dir",
+      "target": "default",
       "icon": "build/ico/mac/icon.icns"
     },
     "files": [
