@@ -23,9 +23,6 @@ function EmbedHost() {
     }
 
     const templateKey = templateName + ":" + templateVersion;
-    if (templateKey === currentTemplateKey.current) {
-      // return;
-    }
 
     const cacheResult = TemplateCache.get(templateName, templateVersion);
 
@@ -35,7 +32,7 @@ function EmbedHost() {
       }
 
       const notifyHostTemplateReady = async () => {
-        const readyResult: any = await Scrowl.host.sendMessage("template.ready", hostContext.slide);
+        await Scrowl.host.sendMessage("template.ready", hostContext.slide);
       };
       notifyHostTemplateReady().catch(console.error);
 
@@ -58,7 +55,7 @@ function EmbedHost() {
       hostContextActions.setTemplateLoaded({ templateName, templateVersion });
 
       const notifyHostTemplateReady = async () => {
-        const readyResult: any = await Scrowl.host.sendMessage("template.ready", hostContext.slide);
+        await Scrowl.host.sendMessage("template.ready", hostContext.slide);
       };
       notifyHostTemplateReady().catch(console.error);
     });

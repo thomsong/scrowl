@@ -2,10 +2,12 @@
 
 import ScrowlTemplate from "./ScrowlTemplate";
 import HostProxy from "./HostProxy";
+
+import lottie from "lottie-web";
+
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-const a11yEmoji = require("@fec/remark-a11y-emoji"); // Not needed in editor
-import lottie from "lottie-web";
+const a11yEmoji = require("@fec/remark-a11y-emoji");
 
 class Scrowl {
   public Template = ScrowlTemplate;

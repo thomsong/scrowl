@@ -19,8 +19,6 @@ const defaultContext: any = {
 function ContextWrapper(props: any) {
   const [contextValue, setContextValue] = React.useState(defaultContext as any);
 
-  // templateName="sample-template" templateVersion="1.0"
-
   React.useEffect(() => {
     const onChange = (payload: any): Promise<any> => {
       const { fieldKey, value } = payload;
@@ -42,7 +40,7 @@ function ContextWrapper(props: any) {
         return newContext;
       });
 
-      return new Promise<any>((resolve, reject) => {
+      return new Promise<any>((resolve) => {
         resolve(true);
       });
     };
@@ -54,20 +52,19 @@ function ContextWrapper(props: any) {
         return newContext;
       });
 
-      return new Promise<any>((resolve, reject) => {
+      return new Promise<any>((resolve) => {
         resolve(true);
       });
     };
 
     const setSlide = (payload: any): Promise<any> => {
-      // console.log("ContextWrapper::setSlide", payload);
-      return new Promise<any>(async (resolve, reject) => {
+      return new Promise<any>(async (resolve) => {
         setContextValue((contextValue: any) => {
           const newContext = { ...contextValue };
 
           newContext.slide = payload;
 
-          // This is a hack that forces the wrapper to refresh. This prevents
+          // This is forces the wrapper to refresh. This prevents
           // poorly coded templates from keeping state on slide change
           newContext.templateLoaded = false;
 
@@ -80,24 +77,7 @@ function ContextWrapper(props: any) {
       });
     };
 
-    const setTemplate = (payload: any): Promise<any> => {
-      throw new Error("setTemplate NOT IMPLEMENTED");
-      // console.log("ContextWrapper::setTemplate", payload);
-      // setContextValue((contextValue: any) => {
-      //   const newContext = { ...contextValue };
-      //   newContext.slide.templateName = payload.templateName;
-      //   newContext.slide.emplateVersion = payload.templateVersion;
-      //   newContext.templateLoaded = false;
-      //   return newContext;
-      // });
-
-      // return new Promise<any>((resolve, reject) => {
-      //   resolve(true);
-      // });
-    };
-
     const updateSlideContent = (payload: any): Promise<any> => {
-      // console.log("updateSlideContent", payload);
       setContextValue((contextValue: any) => {
         const newContext = { ...contextValue };
 
@@ -105,13 +85,12 @@ function ContextWrapper(props: any) {
         return newContext;
       });
 
-      return new Promise<any>((resolve, reject) => {
+      return new Promise<any>((resolve) => {
         resolve(true);
       });
     };
 
     const setSlideValidationErrors = (payload: any): Promise<any> => {
-      // console.log("updateSlideContent", payload);
       setContextValue((contextValue: any) => {
         const newContext = { ...contextValue };
         newContext.slide.validationErrors = payload;
@@ -119,7 +98,7 @@ function ContextWrapper(props: any) {
         return newContext;
       });
 
-      return new Promise<any>((resolve, reject) => {
+      return new Promise<any>((resolve) => {
         resolve(true);
       });
     };
@@ -132,13 +111,12 @@ function ContextWrapper(props: any) {
         return newContext;
       });
 
-      return new Promise<any>((resolve, reject) => {
+      return new Promise<any>((resolve) => {
         resolve(true);
       });
     };
 
     const onFocus = (payload: any, props: any): Promise<any> => {
-      // console.log("onFocus.onFocus.onFocus", payload, props);
       setContextValue((contextValue: any) => {
         const newContext = { ...contextValue };
         newContext.focusElement = payload;
@@ -148,9 +126,6 @@ function ContextWrapper(props: any) {
       if (props.focusRange) {
         const [minScroll, maxScroll] = props.focusRange;
         // Adjust window scroll to keep it in range
-        console.log("minScroll, maxScroll", minScroll, maxScroll);
-        console.log("window", window.scrollY);
-
         if (window.scrollY < minScroll) {
           window.scrollTo({ left: 0, top: minScroll, behavior: "smooth" });
         } else if (window.scrollY > maxScroll) {
@@ -158,7 +133,7 @@ function ContextWrapper(props: any) {
         }
       }
 
-      return new Promise<any>((resolve, reject) => {
+      return new Promise<any>((resolve) => {
         resolve(true);
       });
     };
@@ -170,7 +145,7 @@ function ContextWrapper(props: any) {
         return newContext;
       });
 
-      return new Promise<any>((resolve, reject) => {
+      return new Promise<any>((resolve) => {
         resolve(true);
       });
     };
@@ -179,19 +154,14 @@ function ContextWrapper(props: any) {
       switch (event) {
         case "onChange":
           return onChange(payload);
-
         case "setMode":
           return setMode(payload);
-
         case "onBlur":
           return onBlur();
         case "onFocus":
           return onFocus(payload.fieldKey, payload.props);
-
         case "setLayoutState":
           return setLayoutState(payload);
-        case "setTemplate":
-          return setTemplate(payload);
         case "setSlide":
           return setSlide(payload);
         case "updateSlideContent":
@@ -203,7 +173,7 @@ function ContextWrapper(props: any) {
           console.warn("Unhandled ContextWrapper.tsx::TemplateHandler", event);
       }
 
-      return new Promise<any>((resolve, reject) => {
+      return new Promise<any>((resolve) => {
         resolve(true);
       });
     });

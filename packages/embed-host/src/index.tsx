@@ -15,8 +15,8 @@ const Host = {
 };
 
 const _window: any = window as any;
-// Init it as empty
-_window["templates"] = {};
+
+_window["templates"] = {}; // Init it as empty
 _window["host"] = Host;
 _window["react"] = React;
 

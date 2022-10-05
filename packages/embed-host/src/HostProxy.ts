@@ -14,18 +14,15 @@ class HostProxy {
   }
 
   loadHandlers = () => {
-    // console.log("Load handlers");
     this.handlers["template"] = TemplateHandler;
   };
 
   private connect = () => {
-    // console.log("HostProxy::connect called");
     const channel = new MessageChannel();
     this.channelPort = channel.port1;
-    //   console.log("iFrame loaded");
 
+    // iFrame loaded
     this.channelPort.onmessage = (msg: any) => {
-      // console.log("this.channelPort.onmessage", msg);
       if (msg.data === "host_connected") {
         this.handleSuccessfulConnection();
         return;
@@ -40,14 +37,12 @@ class HostProxy {
       this.handleMessageFromHost(msg.data);
     };
 
-    // console.log("host_proxy_init SENT");
+    // host_proxy_init sent to host
     window.parent.postMessage("host_proxy_init", "*", [channel.port2]);
   };
 
   private handleSuccessfulConnection = () => {
-    // console.log("handleSuccessfulConnection x2", this.connectedToHost);
     this.connectedToHost = true;
-
     this.loadHandlers();
   };
 
@@ -56,7 +51,6 @@ class HostProxy {
     const payload: any = data.payload;
     const callbackId: any = data.callbackId;
 
-    // console.log("EMbed::Incoming msg", action, payload);
     if (!action) {
       console.error("Missing call action");
       return;
@@ -117,7 +111,8 @@ class HostProxy {
 
     const messagePayload: any = {
       action,
-      payload: typeof payload === "string" ? payload : { ...payload }, // We need to clone payload since a ref is passed
+      // We need to clone payload since a ref is passed
+      payload: typeof payload === "string" ? payload : { ...payload },
       callbackId,
     };
 
