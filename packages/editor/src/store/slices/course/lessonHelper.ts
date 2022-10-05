@@ -22,18 +22,13 @@ export function getLessonIndexById(state, id: number) {
 }
 
 export function moveLesson(state, from: { id: any; module: any }, to: { id: any; module: any }) {
-  console.log("moveLesson.moveLesson", from, to);
-
   if (from.id === to.id && from.module === to.module) {
-    console.log("No moved needed");
+    // No moved needed
     return;
   }
 
   const fromLessonIndex = getLessonIndexById(state, from.id);
   const toLessonIndex = getLessonIndexById(state, to.id);
-
-  console.log("fromLessonIndex", fromLessonIndex);
-  console.log("toLessonIndex", toLessonIndex);
 
   state.lessons[fromLessonIndex].moduleId = to.module;
 
@@ -45,10 +40,7 @@ export function moveLesson(state, from: { id: any; module: any }, to: { id: any;
 }
 
 export function deleteLesson(state, module: any, lesson: { id: any }) {
-  console.log("deleteLesson.deleteLesson", lesson.id);
-
   // Remove all slides in this lesson
-  // state.slides.splice(actionSlideIndex, 1);
 
   let selectedSlideWasDeleted = false;
   state.slides = state.slides.filter(function (obj: { lessonId: any; id: any }) {

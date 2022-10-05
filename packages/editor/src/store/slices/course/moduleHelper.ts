@@ -77,7 +77,6 @@ export function deleteModule(state, module: { id: any }) {
 export function addNewModule(state, moduleId: number) {
   const newModuleId = getNextModuleId(state);
 
-  console.log("addNewModule.addNewModule.addNewModule", moduleId);
   const newModule = {
     id: newModuleId,
     name: "Untitled Module " + newModuleId,
@@ -134,7 +133,7 @@ export function duplicateModule(state, module: { id: any }) {
 
 export function moveModule(state, from: { id: any }, to: { id: any }) {
   if (from.id === to.id) {
-    console.log("No moved needed");
+    // No moved needed
     return;
   }
 

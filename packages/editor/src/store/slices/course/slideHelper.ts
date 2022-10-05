@@ -56,7 +56,6 @@ export function duplicateSlide(
   lesson: any
 ) {
   const newSlideId = getNextSlideId(state);
-  console.log("newSlideId", newSlideId, actionSlideIndex);
 
   state.slides.splice(actionSlideIndex + 1, 0, {
     ...state.slides[actionSlideIndex],
@@ -76,7 +75,6 @@ export function addSlideAfterSlide(
   lesson: { id: any }
 ) {
   const newSlideId = getNextSlideId(state);
-  console.log("newSlideId", newSlideId, actionSlideIndex);
 
   state.slides.splice(actionSlideIndex + 1, 0, {
     id: newSlideId,
@@ -156,12 +154,9 @@ export function deleteSlide(
 
   state.slides.splice(actionSlideIndex, 1);
 
-  console.log("nextFocusSlideId", nextFocusSlideId);
-
   if (nextFocusSlideId === -1) {
     // No need to switch selection
 
-    console.log("state.selectedSlideId", state.selectedSlideId);
     state.selectedSlideIndex = getSlideIndexById(state, state.selectedSlideId);
     state.selectedSlide = state.slides[state.selectedSlideIndex];
   } else {
@@ -177,7 +172,7 @@ export function moveSlide(
   to: { id: any; module: any; lesson: any }
 ) {
   if (from.id === to.id && from.module === to.module && from.lesson === to.lesson) {
-    console.log("No moved needed");
+    // No moved needed
     return;
   }
 
