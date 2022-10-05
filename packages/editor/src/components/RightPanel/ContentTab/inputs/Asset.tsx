@@ -3,37 +3,26 @@ import React from "react";
 import { useAppSelector, useAppDispatch } from "../../../../store/hooks";
 import { actions as uiActions } from "./../../../../store/slices/ui";
 
-interface InputProps {
-  // Properties
-  label: string;
+import { LAYOUT_INPUT_TYPE, BaseInputProps, DefaultInputProps } from "./Types";
+
+export interface InputProps extends BaseInputProps {
   placeholder?: string;
-
-  focus: boolean;
-  validationError: string;
-
-  // Events
-  onChange: Function;
-  onValidate: Function;
-  onFocus: Function;
-  onBlur: Function;
+  assetType?: string;
 }
 
 const defaultInputProps: InputProps = {
+  ...DefaultInputProps,
+
+  type: LAYOUT_INPUT_TYPE.Asset,
   label: "Input Label",
   placeholder: "Select an image...",
-  focus: false,
-  validationError: "",
-
-  onChange: () => {},
-  onValidate: () => {},
-  onFocus: () => {},
-  onBlur: () => {},
+  assetType: "",
 };
 
 function ImageAsset(_props: InputProps) {
   const dispatch = useAppDispatch();
 
-  const props: any = { ...defaultInputProps, ..._props };
+  const props: InputProps = { ...defaultInputProps, ..._props };
 
   const inputRef: any = React.useRef();
   const lastFocusState: any = React.useRef(false);

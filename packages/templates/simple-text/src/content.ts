@@ -1,6 +1,12 @@
-import { LAYOUT_INPUT_TYPE } from "embed-host";
+import {
+  LAYOUT_INPUT_TYPE,
+  TemplateLayout,
+  InputTextBoxProps,
+  InputSelectProps,
+  InputAssetProps,
+} from "embed-host";
 
-export function getLayout(payload: any): any {
+export function getLayout(payload: any): TemplateLayout {
   return {
     state: {},
     schema: {
@@ -13,7 +19,7 @@ export function getLayout(payload: any): any {
         autoGrow: 10,
         allowLinebreaks: true,
         maxLength: 2500,
-      },
+      } as InputTextBoxProps,
 
       alignment: {
         type: LAYOUT_INPUT_TYPE.Select,
@@ -24,7 +30,7 @@ export function getLayout(payload: any): any {
           { name: "Align Center", value: "center" },
           { name: "Align Right", value: "right" },
         ],
-      },
+      } as InputSelectProps,
 
       animateLists: {
         type: LAYOUT_INPUT_TYPE.Select,
@@ -35,7 +41,7 @@ export function getLayout(payload: any): any {
           // { name: "Animate Paragraphs", value: "paragraphs" },
           { name: "Lists & Paragraphs", value: "all" },
         ],
-      },
+      } as InputSelectProps,
 
       bgImage: {
         type: "FIELDSET",
@@ -45,12 +51,12 @@ export function getLayout(payload: any): any {
             type: LAYOUT_INPUT_TYPE.Textbox,
             label: "Alt Text",
             placeholder: "Image alt text",
-          },
+          } as InputTextBoxProps,
           url: {
             type: LAYOUT_INPUT_TYPE.Asset,
             assetType: "image",
             label: "Image",
-          },
+          } as InputAssetProps,
         },
       },
     },

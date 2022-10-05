@@ -1,38 +1,24 @@
 import React from "react";
 import { groupElement } from "./GroupElement";
 
-interface InputProps {
-  // Properties
-  label: string;
+import { LAYOUT_INPUT_TYPE, BaseInputProps, DefaultInputProps } from "./Types";
 
-  initialValue?: string;
-  focus: boolean;
-  validationError: string;
-
-  options: any;
-  // Events
-  onChange: Function;
-  onValidate: Function;
-  onFocus: Function;
-  onBlur: Function;
+export interface InputProps extends BaseInputProps {
+  options?: any;
+  pre?: any;
+  post?: any;
 }
 
 const defaultInputProps: InputProps = {
+  ...DefaultInputProps,
+
+  type: LAYOUT_INPUT_TYPE.Select,
   label: "Select Label",
-
-  focus: false,
-  validationError: "",
-
   options: [],
-
-  onChange: () => {},
-  onValidate: () => {},
-  onFocus: () => {},
-  onBlur: () => {},
 };
 
 function Select(_props: InputProps) {
-  const props: any = { ...defaultInputProps, ..._props };
+  const props: InputProps = { ...defaultInputProps, ..._props };
 
   const inputRef: any = React.useRef();
 

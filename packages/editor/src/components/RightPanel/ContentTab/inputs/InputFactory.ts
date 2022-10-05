@@ -3,7 +3,7 @@ import Checkbox from "./Checkbox";
 import Select from "./Select";
 import NumberSpinner from "./NumberSpinner";
 
-import ImageAsset from "./ImageAsset";
+import Asset from "./Asset";
 import { LAYOUT_INPUT_TYPE } from "./Types";
 
 function InputFactory(type: LAYOUT_INPUT_TYPE): any {
@@ -11,7 +11,7 @@ function InputFactory(type: LAYOUT_INPUT_TYPE): any {
     case LAYOUT_INPUT_TYPE.Textbox:
       return Textbox;
     case LAYOUT_INPUT_TYPE.Asset:
-      return ImageAsset;
+      return Asset;
     case LAYOUT_INPUT_TYPE.Checkbox:
       return Checkbox;
     case LAYOUT_INPUT_TYPE.Select:

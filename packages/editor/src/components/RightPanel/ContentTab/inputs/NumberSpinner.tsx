@@ -1,36 +1,29 @@
 import React from "react";
 import Templater from "./templater";
 
-interface InputProps {
-  // Properties
-  label: string;
+import { LAYOUT_INPUT_TYPE, BaseInputProps, DefaultInputProps } from "./Types";
+
+export interface InputProps extends BaseInputProps {
   placeholder?: string;
+  template?: string;
 
-  focus: boolean;
-  validationError: string;
-
-  // Events
-  onChange: Function;
-  onValidate: Function;
-  onFocus: Function;
-  onBlur: Function;
+  min: number;
+  max: number;
 }
 
 const defaultInputProps: InputProps = {
+  ...DefaultInputProps,
+
+  type: LAYOUT_INPUT_TYPE.NumberSpinner,
   label: "Input Label",
   placeholder: "Enter a value...",
 
-  focus: false,
-  validationError: "",
-
-  onChange: () => {},
-  onValidate: () => {},
-  onFocus: () => {},
-  onBlur: () => {},
+  min: 0,
+  max: 100,
 };
 
 function NumberSpinner(_props: InputProps) {
-  const props: any = { ...defaultInputProps, ..._props };
+  const props: InputProps = { ...defaultInputProps, ..._props };
 
   const inputRef: any = React.useRef();
   const lastFocusState: any = React.useRef(false);
@@ -68,8 +61,8 @@ function NumberSpinner(_props: InputProps) {
     },
   };
 
-  let minValue = parseInt(props.min) || 1;
-  let maxValue = parseInt(props.max) || Number.POSITIVE_INFINITY;
+  let minValue = parseInt(String(props.min)) || 1;
+  let maxValue = parseInt(String(props.max)) || Number.POSITIVE_INFINITY;
 
   return (
     <div className={"mb-2"}>

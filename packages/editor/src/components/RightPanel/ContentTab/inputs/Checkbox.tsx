@@ -1,35 +1,21 @@
 import React from "react";
 
-interface InputProps {
-  // Properties
-  label: string;
+import { LAYOUT_INPUT_TYPE, BaseInputProps, DefaultInputProps } from "./Types";
 
-  initialValue?: string;
-  focus: boolean;
-  validationError: string;
-
-  options: any;
-  // Events
-  onChange: Function;
-  onValidate: Function;
-  onFocus: Function;
-  onBlur: Function;
+export interface InputProps extends BaseInputProps {
+  options?: any;
 }
 
 const defaultInputProps: InputProps = {
-  label: "Checkbox",
+  ...DefaultInputProps,
 
-  focus: false,
-  validationError: "",
+  type: LAYOUT_INPUT_TYPE.Checkbox,
+  label: "Checkbox",
   options: [],
-  onChange: () => {},
-  onValidate: () => {},
-  onFocus: () => {},
-  onBlur: () => {},
 };
 
 function Checkbox(_props: InputProps) {
-  const props: any = { ...defaultInputProps, ..._props };
+  const props: InputProps = { ...defaultInputProps, ..._props };
 
   const inputRef: any = React.useRef();
 

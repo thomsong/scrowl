@@ -1,4 +1,4 @@
-export { LAYOUT_INPUT_TYPE } from "editor/src/components/RightPanel/ContentTab/inputs/Types";
+export * from "editor/src/components/RightPanel/ContentTab/inputs/Types";
 
 export enum MIGRATION_HINT {
   Header = "HEADER",
@@ -11,4 +11,9 @@ export enum MIGRATION_HINT {
   Address = "ADDRESS",
   Hero = "HERO",
   Time = "TIME",
+}
+
+export interface TemplateLayout {
+  state: any;
+  schema: any;
 }

@@ -2,43 +2,38 @@ import React from "react";
 import { groupElement } from "./GroupElement";
 import Templater from "./templater";
 
-interface InputProps {
-  // Properties
-  label: string;
+import { LAYOUT_INPUT_TYPE, BaseInputProps, DefaultInputProps } from "./Types";
+
+export interface InputProps extends BaseInputProps {
   placeholder?: string;
+
+  checkbox?: boolean;
 
   multiLine?: boolean;
   autoGrow?: number; // Max number of lines to auto-grow to
   lines?: number; // The initial number of lines to show
-
+  allowLinebreaks?: boolean;
   maxLength?: number;
-  initialValue?: string;
-  focus: boolean;
-  validationError: string;
 
-  // Events
-  onChange: Function;
-  onValidate: Function;
-  onFocus: Function;
-  onBlur: Function;
+  template?: string;
+  pre?: any;
+  post?: any;
 }
 
 const defaultInputProps: InputProps = {
+  ...DefaultInputProps,
+
+  type: LAYOUT_INPUT_TYPE.Textbox,
   label: "Input Label",
   placeholder: "Enter a value...",
 
   multiLine: false,
   autoGrow: 5,
   lines: 3,
+  allowLinebreaks: false,
+  maxLength: 1500,
 
-  maxLength: 500,
-  focus: false,
-  validationError: "",
-
-  onChange: () => {},
-  onValidate: () => {},
-  onFocus: () => {},
-  onBlur: () => {},
+  checkbox: false,
 };
 
 function autoSizeTextArea(textarea, minLines, maxLines) {
@@ -58,7 +53,7 @@ function autoSizeTextArea(textarea, minLines, maxLines) {
 }
 
 function Textbox(_props: InputProps) {
-  const props: any = { ...defaultInputProps, ..._props };
+  const props: InputProps = { ...defaultInputProps, ..._props };
 
   const inputRef: any = React.useRef();
   const [revertValue, setRevertValue]: any = React.useState(null);
